@@ -20,7 +20,7 @@ The major non included components are :
 - Power supply capacitor
 - Solid State Relay (DIP4 package)
 
-Check the project here : https://oshwlab.com/Koxx3/smartlcd-v1-3_copy
+Check the electronic project link on the [main github page](https://github.com/Koxx3/SmartController_SmartDisplay_ESP32#Schematics)
 
 ## After ordering the board PCB
 
