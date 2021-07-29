@@ -881,7 +881,7 @@ void loop()
     blh.processBLE();
   }
 
-#if (CONTROLLER_TYPE == CONTROLLER_MINIMOTORS) || (CONTROLLER_TYPE == CONTROLLER_ZERO)
+#if BUILD_CONTROLLER_MINIMOTORS || BUILD_CONTROLLER_ZERO
   if (i_loop % 100 == 5)
   {
     processCurrent();
