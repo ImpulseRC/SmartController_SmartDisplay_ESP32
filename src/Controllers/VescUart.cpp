@@ -3,7 +3,7 @@
 #include "tools/utils.h"
 #include <stdint.h>
 
-mc_configuration mcconf;
+mc_configuration mcconf_master;
 
 Settings *VescUart::settings;
 SharedData *VescUart::shrd;
@@ -280,19 +280,19 @@ bool VescUart::processReadPacket(uint8_t *message)
 		}
 
 		//send_buffer[ind++] = packet_id;
-		mcconf.l_current_min_scale = buffer_get_float32_auto(message, &ind);
-		mcconf.l_current_max_scale = buffer_get_float32_auto(message, &ind);
-		mcconf.l_min_erpm = buffer_get_float32_auto(message, &ind);
-		mcconf.l_max_erpm = buffer_get_float32_auto(message, &ind);
-		mcconf.l_min_duty = buffer_get_float32_auto(message, &ind);
-		mcconf.l_max_duty = buffer_get_float32_auto(message, &ind);
-		mcconf.l_watt_min = buffer_get_float32_auto(message, &ind);
-		mcconf.l_watt_max = buffer_get_float32_auto(message, &ind);
-		mcconf.l_in_current_min = buffer_get_float32_auto(message, &ind);
-		mcconf.l_in_current_max = buffer_get_float32_auto(message, &ind);
-		mcconf.si_motor_poles = buffer_get_uint8(message, &ind);
-		mcconf.si_gear_ratio = buffer_get_float32_auto(message, &ind);
-		mcconf.si_wheel_diameter = buffer_get_float32_auto(message, &ind);
+		mcconf_master.l_current_min_scale = buffer_get_float32_auto(message, &ind);
+		mcconf_master.l_current_max_scale = buffer_get_float32_auto(message, &ind);
+		mcconf_master.l_min_erpm = buffer_get_float32_auto(message, &ind);
+		mcconf_master.l_max_erpm = buffer_get_float32_auto(message, &ind);
+		mcconf_master.l_min_duty = buffer_get_float32_auto(message, &ind);
+		mcconf_master.l_max_duty = buffer_get_float32_auto(message, &ind);
+		mcconf_master.l_watt_min = buffer_get_float32_auto(message, &ind);
+		mcconf_master.l_watt_max = buffer_get_float32_auto(message, &ind);
+		mcconf_master.l_in_current_min = buffer_get_float32_auto(message, &ind);
+		mcconf_master.l_in_current_max = buffer_get_float32_auto(message, &ind);
+		mcconf_master.si_motor_poles = buffer_get_uint8(message, &ind);
+		mcconf_master.si_gear_ratio = buffer_get_float32_auto(message, &ind);
+		mcconf_master.si_wheel_diameter = buffer_get_float32_auto(message, &ind);
 
 		motorSettingReceived = true;
 
@@ -304,11 +304,11 @@ bool VescUart::processReadPacket(uint8_t *message)
 
 		Serial.println("COMM_GET_MCCONF -- received");
 
-		//confgenerator_deserialize_mcconf(message, &mcconf);
-		Serial.println("l_max_erpm = " + (String)mcconf.l_max_erpm);
-		Serial.println("l_temp_fet_end = " + (String)mcconf.l_temp_fet_end);
-		Serial.println("l_in_current_max = " + (String)mcconf.l_in_current_max);
-		Serial.println("l_current_max = " + (String)mcconf.l_current_max);
+		//confgenerator_deserialize_mcconf(message, &mcconf_master);
+		Serial.println("l_max_erpm = " + (String)mcconf_master.l_max_erpm);
+		Serial.println("l_temp_fet_end = " + (String)mcconf_master.l_temp_fet_end);
+		Serial.println("l_in_current_max = " + (String)mcconf_master.l_in_current_max);
+		Serial.println("l_current_max = " + (String)mcconf_master.l_current_max);
 
 		return true;
 	}
@@ -521,29 +521,29 @@ void VescUart::setMaxSpeed(uint8_t modeOrder)
 		if (modeOrder == 1)
 		{
 			uint32_t max_rpm = KmhToErpm2(settings, 25 + 0.5);
-			mcconf.l_max_erpm = max_rpm;
-			mcconf.l_max_erpm_fbrake = max_rpm;
+			mcconf_master.l_max_erpm = max_rpm;
+			mcconf_master.l_max_erpm_fbrake = max_rpm;
 		}
 		if (modeOrder == 2)
 		{
 			uint32_t max_rpm = KmhToErpm2(settings, 33 + 0.5);
-			mcconf.l_max_erpm = max_rpm;
-			mcconf.l_max_erpm_fbrake = max_rpm;
+			mcconf_master.l_max_erpm = max_rpm;
+			mcconf_master.l_max_erpm_fbrake = max_rpm;
 		}
 		if (modeOrder == 3)
 		{
 			uint32_t max_rpm = 1000000;
-			mcconf.l_max_erpm = max_rpm;
-			mcconf.l_max_erpm_fbrake = max_rpm;
+			mcconf_master.l_max_erpm = max_rpm;
+			mcconf_master.l_max_erpm_fbrake = max_rpm;
 		}
-		//		Serial.println("mode = " + (String)modeOrder + " / KmhToErpm2(1) = " + (String)KmhToErpm2(settings, 1) + " / l_max_erpm = " + (String)mcconf.l_max_erpm);
+		//		Serial.println("mode = " + (String)modeOrder + " / KmhToErpm2(1) = " + (String)KmhToErpm2(settings, 1) + " / l_max_erpm = " + (String)mcconf_master.l_max_erpm);
 
 		// override speed mode if speed limit is enabled
-		if ((shrd->speedLimiter) && (mcconf.l_max_erpm > KmhToErpm2(settings, settings->get_Speed_limiter_max_speed() + 0.5)))
+		if ((shrd->speedLimiter) && (mcconf_master.l_max_erpm > KmhToErpm2(settings, settings->get_Speed_limiter_max_speed() + 0.5)))
 		{
 			uint32_t max_rpm = KmhToErpm2(settings, settings->get_Speed_limiter_max_speed() + 0.5);
-			mcconf.l_max_erpm = max_rpm;
-			mcconf.l_max_erpm_fbrake = max_rpm;
+			mcconf_master.l_max_erpm = max_rpm;
+			mcconf_master.l_max_erpm_fbrake = max_rpm;
 		}
 		shrd->speedLimiterOld = shrd->speedLimiter;
 
@@ -556,20 +556,20 @@ void VescUart::setMaxSpeed(uint8_t modeOrder)
 		payload[index++] = 0; // ack
 		payload[index++] = 0; // divide_by_controllers
 
-		buffer_append_float32_auto(payload, mcconf.l_current_min_scale, &index);
-		buffer_append_float32_auto(payload, mcconf.l_current_max_scale, &index);
-		buffer_append_float32_auto(payload, mcconf.l_min_erpm, &index);
-		buffer_append_float32_auto(payload, mcconf.l_max_erpm, &index);
-		buffer_append_float32_auto(payload, mcconf.l_min_duty, &index);
-		buffer_append_float32_auto(payload, mcconf.l_max_duty, &index);
-		buffer_append_float32_auto(payload, mcconf.l_watt_min, &index);
-		buffer_append_float32_auto(payload, mcconf.l_watt_max, &index);
-		buffer_append_float32_auto(payload, mcconf.l_in_current_min, &index);
-		buffer_append_float32_auto(payload, mcconf.l_in_current_max, &index);
+		buffer_append_float32_auto(payload, mcconf_master.l_current_min_scale, &index);
+		buffer_append_float32_auto(payload, mcconf_master.l_current_max_scale, &index);
+		buffer_append_float32_auto(payload, mcconf_master.l_min_erpm, &index);
+		buffer_append_float32_auto(payload, mcconf_master.l_max_erpm, &index);
+		buffer_append_float32_auto(payload, mcconf_master.l_min_duty, &index);
+		buffer_append_float32_auto(payload, mcconf_master.l_max_duty, &index);
+		buffer_append_float32_auto(payload, mcconf_master.l_watt_min, &index);
+		buffer_append_float32_auto(payload, mcconf_master.l_watt_max, &index);
+		buffer_append_float32_auto(payload, mcconf_master.l_in_current_min, &index);
+		buffer_append_float32_auto(payload, mcconf_master.l_in_current_max, &index);
 		// Setup config needed for speed calculation
-		payload[index++] = (uint8_t)mcconf.si_motor_poles;
-		buffer_append_float32_auto(payload, mcconf.si_gear_ratio, &index);
-		buffer_append_float32_auto(payload, mcconf.si_wheel_diameter, &index);
+		payload[index++] = (uint8_t)mcconf_master.si_motor_poles;
+		buffer_append_float32_auto(payload, mcconf_master.si_gear_ratio, &index);
+		buffer_append_float32_auto(payload, mcconf_master.si_wheel_diameter, &index);
 
 		packSendPayload(payload, sizeof(payload));
 	}
@@ -681,17 +681,17 @@ void VescUart::printVescValues()
 
 void VescUart::printMotorValues()
 {
-	Serial.println("l_current_min_scale = " + (String)mcconf.l_current_min_scale);
-	Serial.println("l_current_max_scale = " + (String)mcconf.l_current_max_scale);
-	Serial.println("l_min_erpm = " + (String)mcconf.l_min_erpm);
-	Serial.println("l_max_erpm = " + (String)mcconf.l_max_erpm);
-	Serial.println("l_maxl_min_duty_erpm = " + (String)mcconf.l_min_duty);
-	Serial.println("l_max_duty = " + (String)mcconf.l_max_duty);
-	Serial.println("si_wheel_diameter = " + (String)mcconf.si_wheel_diameter);
-	Serial.println("si_gear_ratio = " + (String)mcconf.si_gear_ratio);
-	Serial.println("l_watt_min = " + (String)mcconf.l_watt_min);
-	Serial.println("l_watt_max = " + (String)mcconf.l_watt_max);
-	Serial.println("l_in_current_min = " + (String)mcconf.l_in_current_min);
-	Serial.println("l_in_current_max = " + (String)mcconf.l_in_current_max);
-	Serial.println("si_motor_poles = " + (String)mcconf.si_motor_poles);
+	Serial.println("l_current_min_scale = " + (String)mcconf_master.l_current_min_scale);
+	Serial.println("l_current_max_scale = " + (String)mcconf_master.l_current_max_scale);
+	Serial.println("l_min_erpm = " + (String)mcconf_master.l_min_erpm);
+	Serial.println("l_max_erpm = " + (String)mcconf_master.l_max_erpm);
+	Serial.println("l_maxl_min_duty_erpm = " + (String)mcconf_master.l_min_duty);
+	Serial.println("l_max_duty = " + (String)mcconf_master.l_max_duty);
+	Serial.println("si_wheel_diameter = " + (String)mcconf_master.si_wheel_diameter);
+	Serial.println("si_gear_ratio = " + (String)mcconf_master.si_gear_ratio);
+	Serial.println("l_watt_min = " + (String)mcconf_master.l_watt_min);
+	Serial.println("l_watt_max = " + (String)mcconf_master.l_watt_max);
+	Serial.println("l_in_current_min = " + (String)mcconf_master.l_in_current_min);
+	Serial.println("l_in_current_max = " + (String)mcconf_master.l_in_current_max);
+	Serial.println("si_motor_poles = " + (String)mcconf_master.si_motor_poles);
 }
