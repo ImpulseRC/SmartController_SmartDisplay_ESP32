@@ -3,7 +3,7 @@
 
 To contribute and help this project :
 
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/pools/c/8ut4175ux4) 
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/koxx3/) 
 
 ![Logo](/img/smart.png)
 
@@ -282,7 +282,7 @@ I have no skills in iPhone apps. If anyone wants to develop, let me know 😉
 - add power latch
 
 ## Donate to support :moneybag:
-[If you want to support me, click here !](https://www.paypal.com/pools/c/8ut4175ux4)
+[If you want to support me, click here !](https://paypal.me/koxx3/)
 
 ## License
 [The code is under GNU GPL v3 license](/LICENSE)
