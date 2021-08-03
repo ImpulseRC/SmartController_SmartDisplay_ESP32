@@ -46,7 +46,7 @@ Nota : You can change the pin code in the application settings page
 
 ### From the SmartDisplay
 - Long press the secondary button, you will enter in the settings menu
-  - Nota : some settings are not available from this menu (when you have to enter strings)
+ - Nota : some settings are not available from this menu (when you have to enter strings)
 - Use primary and secondary buttons to move the cursor, validate and escape
 
 ## Settings
