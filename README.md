@@ -5,7 +5,7 @@ To contribute and help this project :
 
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/koxx3/) 
 
-![Logo](/img/smart.png)
+![Logo](/img/smart_elec.png)
 
 ## What is SmartController ?
 It's a combo of electronic and smartphone application. It extend all features from original Minimotors EYE LCD and Minimotors controller, but it can also interface VESC, SmartESC adnd Kelly controllers.
