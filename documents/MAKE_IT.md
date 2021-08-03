@@ -131,7 +131,7 @@ Wiring :
 - 4 - button power
 - 5 - GND
 
-### [OW] Expansion board connector
+### [DHT] Expansion board connector
 
 Reserved for PRO version.
 
@@ -149,9 +149,9 @@ If you want to use the latch, close 1&2 on the SMD jumper.
 If your controller needs a power feedback, solder 1&2&3.
 For SmartController, you don't need to sodler anything.
 
-### [X] VESC UART in 3.3V
+### VESC UART in 3.3V
 - remove R20, R10, R3
-- solder X jumper
+- (v1.6.2 : solder X jumper)
 
 # Finish with ESP32
 
