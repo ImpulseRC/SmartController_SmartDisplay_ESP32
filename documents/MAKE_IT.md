@@ -40,7 +40,9 @@ You can also add the external  :
 
 /!\ Square in the connector mark the pin number 1.
 
-## [LC] For original controller display cable
+## Ports
+
+### [LC] For original controller display cable
 
 Minimotors/Zero/Vsett wiring :
 - 1 - serial / ESP to LCD
@@ -51,8 +53,6 @@ Minimotors/Zero/Vsett wiring :
 - 6 - battery power
 
 VESC wiring : not connected
-
-## Ports
 
 ### [CT] For controller cable
 
