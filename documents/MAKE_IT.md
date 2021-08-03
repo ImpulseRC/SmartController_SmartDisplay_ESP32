@@ -133,6 +133,20 @@ Wiring :
 
 Reserved for PRO version.
 
+# Jumpers and other selections
+
+## [JTH] Throttle signal
+If you want to use the throttle curve modification of the Smart, solder 1&2 and 3&4 on the SMD jumper (don't bridge 2&3)
+
+## [JPWR] Power switch & source
+For SmartDisplay, you have a power latch. It allows to power the board and the escooter from the power button (see "Buttons" connector).
+If you want to use the latch, close 1&2 on the SMD jumper.
+If your controller needs a power feedback, solder 1&2&3.
+For SmartController, you don't need to sodler anything.
+
+## [X] VESC UART in 3.3V
+- remove R20, R10, R3
+- solder X jumper
 
 # Finish with ESP32
 
