@@ -155,7 +155,7 @@ If you want to use the latch, close 1&2 on the SMD jumper.
 If your controller needs a power feedback, solder 1&2&3.
 For SmartController, you don't need to sodler anything.
 
-### VESC UART in 3.3V
+### [X] VESC UART in 3.3V
 - remove R20, R10, R3
 - v1.6.2 : solder X jumper
 - v1.4.2 : remove Q5 and solder collector pin to emitter pin.
