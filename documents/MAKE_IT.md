@@ -28,11 +28,11 @@ Order the missing components !
 
 Don't forget to order connectors :
 - JST SM (2/3/6 pins)
-- JST PH 2.0 (2/3/6 pins)
+- JST PH 2.0 (2/3/5/6 pins)
 
 You can also add the external  :
 - WCS1700 : current sensor
-- Expansion boards (PRO version only)
+- Expansion boards (**PRO version** only)
 
 # Ports usage and jumpers
 
