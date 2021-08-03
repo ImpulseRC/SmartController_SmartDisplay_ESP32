@@ -160,14 +160,13 @@ For SmartController, you don't need to sodler anything.
 - v1.6.2 : solder X jumper
 - v1.4.2 : remove Q5 and solder collector pin to emitter pin.
 
-# Finish with ESP32
-
-- leave right pin on the right unconnected (unused)
-- USB port on the left side
-
 # Wrap it
+## SmartController
 You need a wrap for 10.5cm / diameter 33mm
 [Link](https://fr.aliexpress.com/item/4000787511699.html)
+
+## SmartDisplay
+Use the 3D prints available [here](/stl/)
 
 # Once you assembled the board and the components 
 
