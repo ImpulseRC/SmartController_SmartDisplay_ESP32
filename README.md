@@ -111,7 +111,7 @@ The software is designed for [ESP32 Dev Kit v4](https://docs.espressif.com/proje
   <img src="/img/3D_buttons2.png" width="42%" /> 
 </p>
 
-The display and buttons cases are availables here : [STL Parts](/stl/)
+The display and buttons cases are available here : [STL Parts](/stl/)
 
 ## Applications
 ### Android 
