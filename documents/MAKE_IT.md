@@ -131,6 +131,12 @@ Wiring :
 - 4 - button power
 - 5 - GND
 
+## [PWR] 5V output
+
+Wiring :
+- 1 - GND
+- 2 - 5V
+
 ### [DHT] Expansion board connector
 
 Reserved for PRO version.
