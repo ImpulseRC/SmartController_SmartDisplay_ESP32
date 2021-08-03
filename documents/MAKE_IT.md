@@ -140,6 +140,7 @@ Reserved for PRO version.
 ### [JTH] Throttle signal
 If you want to use the throttle curve modification of the Smart, solder 1&2 and 3&4 on the SMD jumper (don't bridge 2&3)
 If you don't want to modify the throttle signal, solder 2&3 on the SMD jumper.
+
 :warning: The throttle signal modification by the Smart boards is dangerous because if the software crash, the escooter motor can continue to accelerate even if the throttle is released. Multiple protections have been added, but the risk still exists. Use it at your own risks ! :warning:
 
 ### [JPWR] Power switch & source
