@@ -22,7 +22,7 @@ The major non included components are :
 
 Check the electronic project link on the [main github page](https://github.com/Koxx3/SmartController_SmartDisplay_ESP32#Schematics)
 
-## After ordering the board PCB
+# After ordering the board PCB
 
 Order the missing components !
 
@@ -30,9 +30,9 @@ Don't forget to order connectors :
 - JST SM (2/3/6 pins)
 - JST PH 2.0 (2/3/6 pins)
 
-You can also add the external sensors :
+You can also add the external  :
 - WCS1700 : current sensor
-- DHT22 : temperature and humity sensor
+- Expansion boards (PRO version only)
 
 ## Port usage
 
