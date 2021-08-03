@@ -14,7 +14,8 @@ Once you have all the electronic, you'll need to flash/install the softwares.
 - Burn efuse for GPIO12 with the script called 'burn_efuse_gpio12.bat'
   - burn_efuse_gpio12.bat <COM_PORT>
 - Erase the ESP32
-- Flash the ESP32
+- Flash ESP32 application partition
+- Flash ESP32 data partition
 
 ## Configure the device
 ### Android
