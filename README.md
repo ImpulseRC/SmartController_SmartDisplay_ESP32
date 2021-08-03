@@ -113,13 +113,13 @@ I have no skills in iPhone apps. If anyone wants to develop, let me know 😉
 
 ## ToDo / Done
 
-- Escooter controllers
+- Escooter controllers ↔️
   - [✅] Serial Minimotors
     - [✅] Read/write serial link LCD_TO_CNTRL
     - [✅] Read/write serial link CNTRL_TO_LCD
     - [✅] Decode speed/mode/brake/regulator from serial link
     - [✅] Frame error detection
-    - [N PROGRESS 🔄] Error codes processing
+    - [IN PROGRESS 🔄] Error codes processing
       - [✅] Controller under voltage error
       - [✅] Throttle voltage
       - [✅] Brake voltage
@@ -139,7 +139,7 @@ I have no skills in iPhone apps. If anyone wants to develop, let me know 😉
     - [✅] Brake forbiden on high voltage
     - [✅] Electric analog brake processing
     - [✅] Electric digital brake processing
-    - [ ] Dual VESC - **PRO Version**
+    - [IN PROGRESS 🔄] Dual VESC - **PRO Version**
       - [ ] Change speed limits
       - [ ] Change current/acceleration limits
       - [ ] Get infos
@@ -180,7 +180,7 @@ I have no skills in iPhone apps. If anyone wants to develop, let me know 😉
   - [✅] Wifi
     - [✅] Settings
     - [✅] Flash firmware
-    - [ ] Dashboard
+    - [IN PROGRESS 🔄] Dashboard
 
 - Other inputs/outputs ↔️
     - [✅] Read current with WCS1700
@@ -231,7 +231,7 @@ I have no skills in iPhone apps. If anyone wants to develop, let me know 😉
   - [✅] PAS switch
   - [✅] Custom acceleration curves (linear/expo/custom)
   - [✅] Automatic power off
-  - [ ] Dynamic BLE debug infos
+  - [IN PROGRESS 🔄] Dynamic BLE debug infos
 
 - Android application 📱
   - [✅] Display : 
@@ -259,7 +259,7 @@ I have no skills in iPhone apps. If anyone wants to develop, let me know 😉
   - [✅] Data logging
   - [✅] History graphics
   - [✅] Integrated settings help
-  - [ ] Wizzard for calibrations
+  - [IN PROGRESS 🔄] Wizzard for calibrations
    
 - iPhone application 🍏
   - use wifi dashboard
