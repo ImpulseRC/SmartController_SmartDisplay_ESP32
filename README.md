@@ -113,18 +113,18 @@ I have no skills in iPhone apps. If anyone wants to develop, let me know 😉
 
 ## ToDo / Done
 
-- [✅] Serial Minimotors
+- Escooter controllers
+  - [✅] Serial Minimotors
     - [✅] Read/write serial link LCD_TO_CNTRL
     - [✅] Read/write serial link CNTRL_TO_LCD
     - [✅] Decode speed/mode/brake/regulator from serial link
     - [✅] Frame error detection
     - [N PROGRESS 🔄] Error codes processing
-        - [✅] Controller under voltage error
-        - [✅] Throttle voltage
-        - [✅] Brake voltage
-        - [ ] Controller other error
-       
-- [✅] VESC
+      - [✅] Controller under voltage error
+      - [✅] Throttle voltage
+      - [✅] Brake voltage
+      - [ ] Controller other error
+  - [✅] VESC
     - [✅] Read serial link
     - [✅] Decode datas : speed, voltage, current
     - [✅] Set speed 1/2/3 modes
@@ -146,8 +146,7 @@ I have no skills in iPhone apps. If anyone wants to develop, let me know 😉
     - [ ] Error codes processing
       - [ ] Temperature alarm
       - [ ] Other errors
-
-- [✅] Zero/Apollo
+  - [✅] Zero/Apollo
     - [✅] Read serial link
     - [✅] Decode datas : speed, mode, power, pas ...
     - [✅] Set speed 1/2/3 modes
