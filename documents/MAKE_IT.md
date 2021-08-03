@@ -36,7 +36,7 @@ You can also add the external  :
 
 # Ports usage and jumpers
 
-<img width="200%" height="200%" src="../img/PCB_SC v1.6.2_2021-08-03-2.svg">
+<img width="200%" height="200%" src="../img/PCB_SC v1.4.2_2021-08-03-2.svg">
 
 :warning: Square in the connector mark the pin number 1. :warning:
 
