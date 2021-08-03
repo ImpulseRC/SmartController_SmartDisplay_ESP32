@@ -22,7 +22,7 @@ The major non included components are :
 
 Check the electronic project link on the [main github page](https://github.com/Koxx3/SmartController_SmartDisplay_ESP32#Schematics)
 
-## After ordering the board PCB
+# After ordering the board PCB
 
 Order the missing components !
 
@@ -30,17 +30,19 @@ Don't forget to order connectors :
 - JST SM (2/3/6 pins)
 - JST PH 2.0 (2/3/6 pins)
 
-You can also add the external sensors :
+You can also add the external  :
 - WCS1700 : current sensor
-- DHT22 : temperature and humity sensor
+- Expansion boards (PRO version only)
 
-## Port usage
+# Port usage
 
 ![PCB](/img/PCB_SC v1.6.2_2021-08-03-2.svg)
+![Alt text](/img/PCB_SC v1.6.2_2021-08-03-2.svg)
+<img src="../img/PCB_SC v1.6.2_2021-08-03-2.svg">
 
 /!\ Square in the connector mark the pin number 1.
 
-### [LC] For original controller display cable
+## [LC] For original controller display cable
 
 Minimotors/Zero/Vsett wiring (left to right) :
 - 1 - serial / ESP to LCD
@@ -52,7 +54,7 @@ Minimotors/Zero/Vsett wiring (left to right) :
 
 VESC wiring : not connected
 
-### [CT] For controller cable
+## [CT] For controller cable
 
 Minimotors wiring (left to right) :
 - 1 - black - serial / controller to ESP
@@ -70,21 +72,19 @@ VESC wiring (left to right) :
 - 5 - not connected
 - 6 - not connected
 
-## Other components/connectors
-
-### Brake output
+## [BKO] Brake output
 
 Wiring :
 - no pin order (relay)
 - max voltage/current : depends of Solid state relay you placed
 
-### Relay output
+## [REL] Relay output
 
 Wiring :
 - no pin order (relay)
 - max voltage/current : depends of Solid state relay you placed
 
-### Brake input
+## [BKI] Brake input
 
 Analog brake wiring (right to left):
 - 1 - 5V
@@ -96,7 +96,7 @@ Digital brake wiring (right to left):
 - 2 - not connected
 - 3 - brake witch
 
-### DHT22 external temperature/humidity sensor
+## [OWB] Expansion board connector
 
 Wiring (right to left):
 - 1 - 5V
@@ -104,17 +104,16 @@ Wiring (right to left):
 - 3 - signal
 
 
-### WCS1700 current sensor
+## [WCS] WCS1700 current sensor
 
 Wiring (right to left):
 - 1 - 5V
 - 2 - GND
 - 3 - signal
 
+## [LCD] LCD display
 
-### LCD display
-
-Wiring (down to up):
+Wiring :
 - 1 - GND
 - 2 - 3.3V
 - 3 - SPI CLK
@@ -124,48 +123,30 @@ Wiring (down to up):
 - 7 - Backlight control 3.3V
 - 8 - Backlight control 5V
 
-### Throttle power
+## [THR] Throttle signals
 
-Wiring (left to right):
-- 1 - 5V
-- 2 - GND
+Wiring :
 
-### Throttle signals
 
-Wiring (left to right):
-- 1 - ESP to controller
-- 2 - output to controller
-- 3 - input from display
-- 4 - display to ESP
+## [BTN] Buttons & LEDs
 
-### Buttons & LEDs
-
-Wiring (left to right):
+Wiring :
 - 1 - GND - black
 - 2 - button power - green
 - 3 - buttons LEDs - white
 - 4 - button 2 - brown
 - 5 - button 1 - yellow
 
-### Solid State relays
-
-Wiring :
-- usually pin 1/2 are at the bottom. Check the SSR datasheet.
-- 1 (bottom left) - IO 3.3V
-- 2 (bottom right) - GND
-- 3 (upper right) - IO out
-- 4 (upper left) - IO out
-
-## Finish with ESP32
+# Finish with ESP32
 
 - leave right pin on the right unconnected (unused)
 - USB port on the left side
 
-## Wrap it
+# Wrap it
 You need a wrap for 10.5cm / diameter 33mm
 [Link](https://fr.aliexpress.com/item/4000787511699.html)
 
-## Once you assembled the board and the components 
+# Once you assembled the board and the components 
 
 Upload the applications :D
 
