@@ -161,13 +161,13 @@ I have no skills in iPhone apps. If anyone wants to develop, let me know 😉
     - [✅] Electric analog brake processing
     - [✅] Electric digital brake processing
     - [ ] Error codes processing
-
-- [✅] Kelly
+  - [✅] Kelly
     - [✅] Read serial link
     - [✅] Decode datas : speed, voltage, controller temperature
     - [ ] Error codes processing
-  
-- [✅] Bluetooth 
+
+- Communications
+  - [✅] Bluetooth 
     - [✅] Communication with Android
     - [✅] Dashboard
     - [✅] Anti-theth with smartphone
@@ -177,13 +177,12 @@ I have no skills in iPhone apps. If anyone wants to develop, let me know 😉
     - [✅] SmartController connection with multi devices (BT device choice)
     - [✅] Settings
     - [✅] Flash firmware
-
-- [✅] Wifi
+  - [✅] Wifi
     - [✅] Settings
     - [✅] Flash firmware
     - [ ] Dashboard
 
-- [✅] Other inputs/outputs ↔️
+- Other inputs/outputs ↔️
     - [✅] Read current with WCS1700
     - [✅] Read battery voltage
     - [✅] Read tempertature/humidity with DHT11/DHT22
@@ -201,70 +200,69 @@ I have no skills in iPhone apps. If anyone wants to develop, let me know 😉
       - [IN PROGRESS 🔄] GPS & anti-theft
       - [IN PROGRESS 🔄] Time and date 
 
-- [✅] Power 🔋
+- Power 🔋
     - [✅] Convert 12V to 5V
     - [✅] Convert 80V to 5V
     - [✅] Convert 100V to 5V
 
-- [ ] Features ⚙️
-    - [✅] Save settings in non volatile memory
-    - [✅] Progressive electric braking (software detection)
-    - [✅] Progressive electric braking (hardware analog detection)
-    - [✅] OTA update
-    - [✅] Current measure auto calibration (at startup)
-    - [✅] Current measure manual calibration
-    - [✅] Speed limiter at startup
-    - [✅] Configurable speed limit
-    - [✅] Remote physical button
-        - [✅] Speed limiter ON/OFF
-        - [✅] Lock ON      
-        - [✅] Nitro Boost continuous
-        - [✅] Nitro Boost ON/OFF
-        - [✅] Aux ON/OFF       
-        - [✅] Switch modes 1/2/3 or 2/3   
-        - [✅] Settings access
-    - [✅] Disable electric brake with full battery
-    - [✅] Manual calibration for analog brake
-    - [✅] Manual calibration for voltage
-    - [✅] Use brake switch as startup for speed limiter
-    - [✅] LCD Speed adjustment
-    - [✅] Exponential acceleration curve
-    - [✅] PAS switch
-    - [✅] Custom acceleration curves (linear/expo/custom)
-    - [✅] Automatic power off
-    - [IN PROGRESS 🔄] Automatic ECO mode on low battery 
-    - [ ] Dynamic BLE debug infos
+- Features ⚙️
+  - [✅] Save settings in non volatile memory
+  - [✅] Progressive electric braking (software detection)
+  - [✅] Progressive electric braking (hardware analog detection)
+  - [✅] OTA update
+  - [✅] Current measure auto calibration (at startup)
+  - [✅] Current measure manual calibration
+  - [✅] Speed limiter at startup
+  - [✅] Configurable speed limit
+  - [✅] Remote physical button
+    - [✅] Speed limiter ON/OFF
+    - [✅] Lock ON      
+    - [✅] Nitro Boost continuous
+    - [✅] Nitro Boost ON/OFF
+    - [✅] Aux ON/OFF       
+    - [✅] Switch modes 1/2/3 or 2/3   
+    - [✅] Settings access
+  - [✅] Disable electric brake with full battery
+  - [✅] Manual calibration for analog brake
+  - [✅] Manual calibration for voltage
+  - [✅] Use brake switch as startup for speed limiter
+  - [✅] LCD Speed adjustment
+  - [✅] Exponential acceleration curve
+  - [✅] PAS switch
+  - [✅] Custom acceleration curves (linear/expo/custom)
+  - [✅] Automatic power off
+  - [ ] Dynamic BLE debug infos
 
-- [✅] Android application 📱
-    - [✅] Display : 
-        - [✅] Speed
-        - [✅] Mode
-        - [✅] Voltage
-        - [✅] Current
-        - [✅] Power
-        - [✅] Brake mode (PA)
-        - [✅] Max speed
-        - [✅] Max power
-        - [✅] Max current
-        - [✅] Temperature
-        - [✅] Humidity
-        - [✅] Time
-        - [✅] Moving time
-        - [✅] Odometer / distance
-        - [✅] Trip distance
-        - [✅] Average speed
-        - [✅] Autonomy
-        - [✅] Brake forbiden
-        - [✅] Errors
-    - [✅] Auto-launch app with NFC tag
-    - [✅] Parameters custom settings
-    - [✅] Data logging
-    - [✅] History graphics
-    - [✅] Integrated settings help
-    - [ ] Wizzard for calibrations
+- Android application 📱
+  - [✅] Display : 
+    - [✅] Speed
+    - [✅] Mode
+    - [✅] Voltage
+    - [✅] Current
+    - [✅] Power
+    - [✅] Brake mode (PA)
+    - [✅] Max speed
+    - [✅] Max power
+    - [✅] Max current
+    - [✅] Temperature
+    - [✅] Humidity
+    - [✅] Time
+    - [✅] Moving time
+    - [✅] Odometer / distance
+    - [✅] Trip distance
+    - [✅] Average speed
+    - [✅] Autonomy
+    - [✅] Brake forbiden
+    - [✅] Errors
+  - [✅] Auto-launch app with NFC tag
+  - [✅] Parameters custom settings
+  - [✅] Data logging
+  - [✅] History graphics
+  - [✅] Integrated settings help
+  - [ ] Wizzard for calibrations
    
-- [✅] iPhone application 🍏
-    - use wifi dashboard
+- iPhone application 🍏
+  - use wifi dashboard
 
 ## Let's go ! :kick_scooter:
 
