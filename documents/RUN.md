@@ -6,7 +6,7 @@ Once you have all the electronic, you'll need to flash/install the softwares.
 
 ## Versions
 
-Firmwares are labeled as follow : smart<xxx>_<yyyy>[_<zzzz>]
+Firmwares are labeled as follow : `smart<xxx>_<yyyy>[_<zzzz>]`
 - xxx : smartcontroller = without screen / smartdisplay = with screen
 - yyy : escooter controller type
 - zzz : screen type (2.4 = ILI9341 / 3.5 = ILI9481 / 3.5v3 = ST7796)
