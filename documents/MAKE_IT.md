@@ -34,35 +34,25 @@ You can also add the external sensors :
 - WCS1700 : current sensor
 - DHT22 : temperature and humity sensor
 
-## Minimal soldering
+## Port usage
 
-### Jumper for direct throlle
-![Jumper for direct throlle](/img/pcb_typon_mini1.png)
+![PCB](/img/PCB_SC v1.6.2_2021-08-03-2.svg)
 
-### Power supply capacitor
-![Capacitor](/img/pcb_typon_mini2.png)
+/!\ Square in the connector mark the pin number 1.
 
-### JST-SM cables - display 
-![JST-SM cables - display](/img/pcb_typon_mini4.png)
+### [LC] For original controller display cable
 
-Minimotors wiring (left to right) :
-- 1 - black - serial / ESP to LCD
-- 2 - red - serial / LCD to ESP
-- 3 - orange or blue - throttle signal
-- 4 - white - GND
-- 5 - yellow - battery feedback
-- 6 - green - battery power
+Minimotors/Zero/Vsett wiring (left to right) :
+- 1 - serial / ESP to LCD
+- 2 - serial / LCD to ESP
+- 3 - throttle signal
+- 4 - GND
+- 5 - battery feedback
+- 6 - battery power
 
-VESC wiring (left to right) :
-- 1 - not connected
-- 2 - not connected
-- 3 - not connected
-- 4 - not connected
-- 5 - power switch
-- 6 - power switch
+VESC wiring : not connected
 
-### JST-SM cables - controller
-![JST-SM cables - controller](/img/pcb_typon_mini5.png)
+### [CT] For controller cable
 
 Minimotors wiring (left to right) :
 - 1 - black - serial / controller to ESP
@@ -83,21 +73,18 @@ VESC wiring (left to right) :
 ## Other components/connectors
 
 ### Brake output
-![ESP32](/img/pcb_typon_max1.png)
 
 Wiring :
 - no pin order (relay)
 - max voltage/current : depends of Solid state relay you placed
 
 ### Relay output
-![ESP32](/img/pcb_typon_max2.png)
 
 Wiring :
 - no pin order (relay)
 - max voltage/current : depends of Solid state relay you placed
 
 ### Brake input
-![ESP32](/img/pcb_typon_max3.png)
 
 Analog brake wiring (right to left):
 - 1 - 5V
@@ -110,7 +97,6 @@ Digital brake wiring (right to left):
 - 3 - brake witch
 
 ### DHT22 external temperature/humidity sensor
-![ESP32](/img/pcb_typon_max4.png)
 
 Wiring (right to left):
 - 1 - 5V
@@ -119,7 +105,6 @@ Wiring (right to left):
 
 
 ### WCS1700 current sensor
-![ESP32](/img/pcb_typon_max5.png)
 
 Wiring (right to left):
 - 1 - 5V
@@ -128,7 +113,6 @@ Wiring (right to left):
 
 
 ### LCD display
-![ESP32](/img/pcb_typon_max6.png)
 
 Wiring (down to up):
 - 1 - GND
@@ -141,14 +125,12 @@ Wiring (down to up):
 - 8 - Backlight control 5V
 
 ### Throttle power
-![ESP32](/img/pcb_typon_max7.png)
 
 Wiring (left to right):
 - 1 - 5V
 - 2 - GND
 
 ### Throttle signals
-![ESP32](/img/pcb_typon_max8.png)
 
 Wiring (left to right):
 - 1 - ESP to controller
@@ -157,7 +139,6 @@ Wiring (left to right):
 - 4 - display to ESP
 
 ### Buttons & LEDs
-![ESP32](/img/pcb_typon_max9.png)
 
 Wiring (left to right):
 - 1 - GND - black
@@ -167,7 +148,6 @@ Wiring (left to right):
 - 5 - button 1 - yellow
 
 ### Solid State relays
-![ESP32](/img/pcb_typon_max10.png)
 
 Wiring :
 - usually pin 1/2 are at the bottom. Check the SSR datasheet.
@@ -177,7 +157,6 @@ Wiring :
 - 4 (upper left) - IO out
 
 ## Finish with ESP32
-![ESP32](/img/pcb_typon_mini3.png)
 
 - leave right pin on the right unconnected (unused)
 - USB port on the left side
