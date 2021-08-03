@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   width="280mm"
-   height="141.5mm"
-   viewBox="4103.7 3539.9 280 141.50001"
+   width="260mm"
+   height="121.5mm"
+   viewBox="4103.7 3539.9 260 121.50001"
    version="1.1"
    id="svg2173"
    sodipodi:docname="PCB_SC v1.6.2_2021-08-03-2.svg"
@@ -24,18 +24,18 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.69357767"
-     inkscape:cx="317.91681"
-     inkscape:cy="58.392883"
+     inkscape:cx="280.43002"
+     inkscape:cy="20.906094"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="-8"
      inkscape:window-y="32"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer2"
-     fit-margin-top="10"
-     fit-margin-left="10"
-     fit-margin-right="10"
-     fit-margin-bottom="10"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
      scale-x="1" />
   <title
      id="title2" />
@@ -128,7 +128,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -150,7 +150,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -172,7 +172,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -194,7 +194,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -216,7 +216,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -238,7 +238,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -260,7 +260,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -282,7 +282,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -304,7 +304,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -326,7 +326,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -348,7 +348,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -370,7 +370,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -392,7 +392,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -414,7 +414,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -436,7 +436,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -458,7 +458,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -480,7 +480,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -502,7 +502,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -524,7 +524,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -546,7 +546,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -568,7 +568,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -590,7 +590,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -612,7 +612,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -634,7 +634,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -656,7 +656,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -678,7 +678,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -700,7 +700,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -722,7 +722,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -744,7 +744,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -766,7 +766,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -788,7 +788,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -810,7 +810,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -832,7 +832,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -854,7 +854,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -876,7 +876,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -898,7 +898,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -920,7 +920,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -942,7 +942,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -964,7 +964,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -986,7 +986,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1008,7 +1008,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1030,7 +1030,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1052,7 +1052,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1074,7 +1074,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1096,7 +1096,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1118,7 +1118,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1140,7 +1140,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1162,7 +1162,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1184,7 +1184,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1206,7 +1206,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1228,7 +1228,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1250,7 +1250,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1272,7 +1272,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1294,7 +1294,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1316,7 +1316,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1338,7 +1338,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1360,7 +1360,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1382,7 +1382,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1404,7 +1404,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1426,7 +1426,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1448,7 +1448,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1470,7 +1470,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1492,7 +1492,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1514,7 +1514,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1536,7 +1536,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1558,7 +1558,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1580,7 +1580,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1602,7 +1602,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1624,7 +1624,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1646,7 +1646,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1668,7 +1668,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1690,7 +1690,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1712,7 +1712,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="2.7559"
        c_fontfamily=""
@@ -1734,7 +1734,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1756,7 +1756,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="2.7559"
        c_fontfamily=""
@@ -1778,7 +1778,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1800,7 +1800,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1822,7 +1822,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1844,7 +1844,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1866,7 +1866,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1888,7 +1888,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1910,7 +1910,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1932,7 +1932,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1954,7 +1954,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1976,7 +1976,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -1998,7 +1998,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      layerid="3"
      c_shapetype="group"
      display="none"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <path
        c_fontsize="4.5"
        c_fontfamily=""
@@ -2014,7 +2014,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      id="layer1"
      inkscape:label="Layer 1"
      style="display:inline;opacity:0.0953177"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <g
        c_partid="part_pad"
        c_etype="pinpart"
@@ -5090,7 +5090,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
        transform="translate(1.8861164e-5,-1.3827527e-5)">
       <polygon
          c_etype="pad_shell"
-         points="4353.7349,3669.4567 4360.8215,3669.4567 4360.8215,3676.5433 4353.7349,3676.5433 "
+         points="4360.8215,3676.5433 4353.7349,3676.5433 4353.7349,3669.4567 4360.8215,3669.4567 "
          layerid="11"
          stroke-width="0"
          id="polygon398" />
@@ -5228,7 +5228,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
        transform="translate(1.8861164e-5,-1.3827527e-5)">
       <polygon
          c_etype="pad_shell"
-         points="4332.7349,3669.4567 4339.8215,3669.4567 4339.8215,3676.5433 4332.7349,3676.5433 "
+         points="4339.8215,3676.5433 4332.7349,3676.5433 4332.7349,3669.4567 4339.8215,3669.4567 "
          layerid="11"
          stroke-width="0"
          id="polygon418" />
@@ -7841,7 +7841,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
      id="layer2"
      inkscape:label="main"
      style="opacity:1"
-     transform="translate(-35.080019,-24.099986)">
+     transform="translate(-45.080019,-34.099986)">
     <g
        c_partid="part_pad"
        c_etype="pinpart"
@@ -7862,7 +7862,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
        transform="translate(1.8861164e-5,-1.3827527e-5)">
       <polygon
          c_etype="pad_shell"
-         points="4153.9318,3674.4528 4153.9318,3668.5472 4160.6247,3668.5472 4160.6247,3674.4528 "
+         points="4160.6247,3668.5472 4160.6247,3674.4528 4153.9318,3674.4528 4153.9318,3668.5472 "
          layerid="11"
          stroke-width="0"
          id="polygon8" />
@@ -8237,7 +8237,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
        transform="translate(1.8861164e-5,-1.3827527e-5)">
       <polygon
          c_etype="pad_shell"
-         points="4176.2524,3649.8504 4182.5516,3649.8504 4182.5516,3656.1496 4176.2524,3656.1496 "
+         points="4182.5516,3656.1496 4176.2524,3656.1496 4176.2524,3649.8504 4182.5516,3649.8504 "
          layerid="11"
          stroke-width="0"
          id="polygon58" />
@@ -8460,7 +8460,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
        transform="translate(1.8861164e-5,-1.3827527e-5)">
       <polygon
          c_etype="pad_shell"
-         points="4353.7698,3598.74 4359.2798,3598.74 4359.2798,3604.26 4353.7698,3604.26 "
+         points="4359.2798,3604.26 4353.7698,3604.26 4353.7698,3598.74 4359.2798,3598.74 "
          layerid="11"
          stroke-width="0"
          id="polygon93" />
@@ -8721,7 +8721,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
        transform="translate(1.8861164e-5,-1.3827527e-5)">
       <polygon
          c_etype="pad_shell"
-         points="4366.9298,3614.41 4366.9298,3620.71 4360.6298,3620.71 4360.6298,3614.41 "
+         points="4360.6298,3620.71 4360.6298,3614.41 4366.9298,3614.41 4366.9298,3620.71 "
          layerid="11"
          stroke-width="0"
          id="polygon323" />
@@ -8792,7 +8792,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
        transform="translate(1.8861164e-5,-1.3827527e-5)">
       <polygon
          c_etype="pad_shell"
-         points="4346.9298,3614.41 4346.9298,3620.71 4340.6298,3620.71 4340.6298,3614.41 "
+         points="4340.6298,3620.71 4340.6298,3614.41 4346.9298,3614.41 4346.9298,3620.71 "
          layerid="11"
          stroke-width="0"
          id="polygon333" />
@@ -8826,7 +8826,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
        transform="matrix(0.57089302,0,0,0.57089302,1807.3951,1573.5586)">
       <polygon
          c_etype="pad_shell"
-         points="4346.9298,3620.71 4340.6298,3620.71 4340.6298,3614.41 4346.9298,3614.41 "
+         points="4340.6298,3614.41 4346.9298,3614.41 4346.9298,3620.71 4340.6298,3620.71 "
          layerid="11"
          stroke-width="0"
          id="polygon333-5" />
@@ -8860,7 +8860,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
        transform="matrix(0.57089302,0,0,0.57089302,1747.0648,1528.6565)">
       <polygon
          c_etype="pad_shell"
-         points="4346.9298,3620.71 4340.6298,3620.71 4340.6298,3614.41 4346.9298,3614.41 "
+         points="4340.6298,3614.41 4346.9298,3614.41 4346.9298,3620.71 4340.6298,3620.71 "
          layerid="11"
          stroke-width="0"
          id="polygon333-5-6" />
@@ -8894,7 +8894,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
        transform="matrix(0.31803931,0,0,0.31803931,2875.8162,2521.086)">
       <polygon
          c_etype="pad_shell"
-         points="4340.6298,3620.71 4340.6298,3614.41 4346.9298,3614.41 4346.9298,3620.71 "
+         points="4346.9298,3614.41 4346.9298,3620.71 4340.6298,3620.71 4340.6298,3614.41 "
          layerid="11"
          stroke-width="0"
          id="polygon333-5-7" />
@@ -9003,7 +9003,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
        transform="translate(1.8861164e-5,-1.3827527e-5)">
       <polygon
          c_etype="pad_shell"
-         points="4176.25,3630.35 4182.55,3630.35 4182.55,3636.65 4176.25,3636.65 "
+         points="4182.55,3636.65 4176.25,3636.65 4176.25,3630.35 4182.55,3630.35 "
          layerid="11"
          stroke-width="0"
          id="polygon348" />
@@ -9112,7 +9112,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
        transform="translate(1.8861164e-5,-1.3827527e-5)">
       <polygon
          c_etype="pad_shell"
-         points="4257.13,3617.52 4257.13,3611.22 4263.43,3611.22 4263.43,3617.52 "
+         points="4263.43,3611.22 4263.43,3617.52 4257.13,3617.52 4257.13,3611.22 "
          layerid="11"
          stroke-width="0"
          id="polygon363" />
@@ -9221,7 +9221,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
        transform="translate(1.8861164e-5,-1.3827527e-5)">
       <polygon
          c_etype="pad_shell"
-         points="4176.25,3669.35 4182.55,3669.35 4182.55,3675.65 4176.25,3675.65 "
+         points="4182.55,3675.65 4176.25,3675.65 4176.25,3669.35 4182.55,3669.35 "
          layerid="11"
          stroke-width="0"
          id="polygon378" />
@@ -9444,7 +9444,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
        transform="translate(1.8861164e-5,-1.3827527e-5)">
       <polygon
          c_etype="pad_shell"
-         points="4224.9436,3636.6496 4231.2428,3636.6496 4231.2428,3630.3504 4224.9436,3630.3504 "
+         points="4231.2428,3630.3504 4224.9436,3630.3504 4224.9436,3636.6496 4231.2428,3636.6496 "
          layerid="11"
          stroke-width="0"
          id="polygon448" />
@@ -9478,7 +9478,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
        style="fill:#000000;stroke:#000000">
       <polygon
          c_etype="pad_shell"
-         points="4224.9436,3630.3504 4224.9436,3636.6496 4231.2428,3636.6496 4231.2428,3630.3504 "
+         points="4231.2428,3636.6496 4231.2428,3630.3504 4224.9436,3630.3504 4224.9436,3636.6496 "
          layerid="11"
          stroke-width="0"
          id="polygon448-6" />
@@ -9512,7 +9512,7 @@ rect, circle, ellipse, polyline, line, polygon, path {shape-rendering:crispEdges
        style="fill:#000000;stroke:#000000">
       <polygon
          c_etype="pad_shell"
-         points="4224.9436,3630.3504 4224.9436,3636.6496 4231.2428,3636.6496 4231.2428,3630.3504 "
+         points="4231.2428,3636.6496 4231.2428,3630.3504 4224.9436,3630.3504 4224.9436,3636.6496 "
          layerid="11"
          stroke-width="0"
          id="polygon448-8" />
