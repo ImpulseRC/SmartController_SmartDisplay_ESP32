@@ -78,7 +78,7 @@ Wiring :
 - no pin order (relay)
 - max voltage/current : depends of Solid state relay you placed
 
-## [REL] Relay output
+### [REL] Relay output
 
 Wiring :
 - no pin order (relay)
@@ -131,7 +131,7 @@ Wiring :
 - 4 - button power
 - 5 - GND
 
-## [PWR] 5V output
+### [PWR] 5V output
 
 Wiring :
 - 1 - GND
