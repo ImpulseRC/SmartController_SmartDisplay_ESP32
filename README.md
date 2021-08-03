@@ -85,6 +85,7 @@ Current PCB size : 6.5cm (7cm with display connector) x 3.0cm x 1.5cm
 
 ![Idea](/img/20210109_160006.jpg)
 
+
 ## Electronic
 ### Compatibility
 The software is designed for [ESP32 Dev Kit v4](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/hw-reference/esp32/get-started-devkitc.html) microcontroller.
@@ -103,6 +104,11 @@ The software is designed for [ESP32 Dev Kit v4](https://docs.espressif.com/proje
 
 ### Inspiration to understand controller electronic
 [China BLDC motor controller 36v 250W](http://avdweb.nl/Article_files/Solarbike/Motor-controller/China-BLDC-motor-controller-36V-250W.pdf)
+
+## 3D parts
+![Img1](/img/3D_display2.png) ![Img1](/img/3D_display2.png) ![Img1](/img/3D_buttons2.png)
+
+The display and buttons cases are availables here : [STL Parts](/stl/)
 
 ## Applications
 ### Android 
