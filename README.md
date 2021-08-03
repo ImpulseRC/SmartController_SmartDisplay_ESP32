@@ -107,7 +107,7 @@ The software is designed for [ESP32 Dev Kit v4](https://docs.espressif.com/proje
 
 ## 3D parts
 <p float="left">
-  <img src="/img/3D_display2.png" width="40%" />
+  <img src="/img/3D_display2.png" width="45%" />
   <img src="/img/3D_buttons2.png" width="40%" /> 
 </p>
 
