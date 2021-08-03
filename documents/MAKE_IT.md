@@ -137,7 +137,7 @@ Wiring :
 - 1 - GND
 - 2 - 5V
 
-### [DHT] Expansion board connector
+### [DHT/OW] Expansion board connector
 
 Reserved for PRO version.
 
