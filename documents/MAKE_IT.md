@@ -121,19 +121,10 @@ Wiring :
 - 7 - Backlight control 3.3V
 - 8 - Backlight control 5V
 
-## Throttle power
+## [THR] Throttle signals
 
 Wiring :
-- 1 - 5V
-- 2 - GND
 
-## Throttle signals
-
-Wiring :
-- 1 - ESP to controller
-- 2 - output to controller
-- 3 - input from display
-- 4 - display to ESP
 
 ## [BTN] Buttons & LEDs
 
