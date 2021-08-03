@@ -106,7 +106,10 @@ The software is designed for [ESP32 Dev Kit v4](https://docs.espressif.com/proje
 [China BLDC motor controller 36v 250W](http://avdweb.nl/Article_files/Solarbike/Motor-controller/China-BLDC-motor-controller-36V-250W.pdf)
 
 ## 3D parts
-![Img1](/img/3D_display2.png) ![Img1](/img/3D_display2.png) ![Img1](/img/3D_buttons2.png)
+<p float="left">
+  <img src="/img/3D_display2.png" width="100" />
+  <img src="/img/3D_buttons2.png" width="100" /> 
+</p>
 
 The display and buttons cases are availables here : [STL Parts](/stl/)
 
