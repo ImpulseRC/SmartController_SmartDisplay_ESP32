@@ -54,7 +54,7 @@ VESC wiring : not connected
 
 ## [CT] For controller cable
 
-Minimotors wiring (left to right) :
+Minimotors/Zero/Vsett wiring :
 - 1 - black - serial / controller to ESP
 - 2 - red - serial / ESP to controller
 - 3 - orange or blue - throttle signal
@@ -62,7 +62,7 @@ Minimotors wiring (left to right) :
 - 5 - yellow - battery feedback
 - 6 - green - battery power
 
-VESC wiring (left to right) :
+VESC wiring :
 - 1 - yellow - RX ESP / TX VESC
 - 2 - white - TX ESP / RX VESC
 - 3 - red - throttle
@@ -84,30 +84,22 @@ Wiring :
 
 ## [BKI] Brake input
 
-Analog brake wiring (right to left):
-- 1 - 5V
+Analog brake wiring :
+- 1 - signal
 - 2 - GND
-- 3 - signal
+- 3 - 5V
 
-Digital brake wiring (right to left):
-- 1 - brake witch
+Digital brake wiring :
+- 1 - brake switch
 - 2 - not connected
-- 3 - brake witch
-
-## [OWB] Expansion board connector
-
-Wiring (right to left):
-- 1 - 5V
-- 2 - GND
-- 3 - signal
-
+- 3 - brake switch
 
 ## [WCS] WCS1700 current sensor
 
-Wiring (right to left):
-- 1 - 5V
+Wiring:
+- 1 - signal
 - 2 - GND
-- 3 - signal
+- 3 - 5V
 
 ## [LCD] LCD display
 
@@ -124,16 +116,23 @@ Wiring :
 ## [THR] Throttle signals
 
 Wiring :
-
+- 1 - signal
+- 2 - GND
+- 3 - 5V
 
 ## [BTN] Buttons & LEDs
 
 Wiring :
-- 1 - GND - black
-- 2 - button power - green
+- 1 - button 1 - yellow
+- 2 - button 2 - brown
 - 3 - buttons LEDs - white
-- 4 - button 2 - brown
-- 5 - button 1 - yellow
+- 4 - button power - green
+- 5 - GND - black
+
+## [OW] Expansion board connector
+
+Reserved for PRO version.
+
 
 # Finish with ESP32
 
