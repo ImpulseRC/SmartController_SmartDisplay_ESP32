@@ -152,8 +152,11 @@ If you don't want to modify the throttle signal, solder 2&3 on the SMD jumper.
 
 ### [JPWR] Power switch & source
 For SmartDisplay, you have a power latch. It allows to power the board and the escooter from the power button (see "Buttons" connector).
+
 If you want to use the latch, close 1&2 on the SMD jumper.
+
 If your controller needs a power feedback, solder 1&2&3.
+
 For SmartController, you don't need to sodler anything.
 
 ### [X] VESC UART in 3.3V
