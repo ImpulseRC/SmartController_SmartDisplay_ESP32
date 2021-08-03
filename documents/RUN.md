@@ -40,7 +40,7 @@ Firmwares are labeled as follow : `smart<xxx>_<yyyy>[_<zzzz>]`
 ### iPhone
 - Enable wifi
 - Search for "SmartContrl-xxxx" wifi
-- Connect to the SmartElec hotsport, enter the password 147258147258 and access the hotspot page
+- Connect to the SmartElec hotsport, enter the password 147258147258 (this is the Bluetooth PIN code repeated twice) and access the hotspot page
   - Nota : The password is the Bluetooth pin code repeated twice. Change the Bluetooth pin code to change the wifi password.
 - Enter in the settings menu
 
