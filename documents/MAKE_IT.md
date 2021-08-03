@@ -37,6 +37,8 @@ You can also add the external  :
 # Port usage
 
 ![PCB](/img/PCB_SC v1.6.2_2021-08-03-2.svg)
+![Alt text](/img/PCB_SC v1.6.2_2021-08-03-2.svg)
+<img src="../img/PCB_SC v1.6.2_2021-08-03-2.svg">
 
 /!\ Square in the connector mark the pin number 1.
 
