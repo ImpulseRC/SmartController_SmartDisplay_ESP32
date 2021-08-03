@@ -34,7 +34,7 @@ You can also add the external  :
 - WCS1700 : current sensor
 - Expansion boards (PRO version only)
 
-# Port usage
+# Ports usage and jumpers
 
 <img width="200%" height="200%" src="../img/PCB_SC v1.6.2_2021-08-03-2.svg">
 
