@@ -58,7 +58,7 @@ Then ...
 
 ### Android
 - In the main interface, open the menu with the '...' , tap "Software update (OTA)"
-=> The SmartController will siwth from bluetooth to wifi server and you will loose Bluetooth connection.
+=> The SmartController will switch from bluetooth to wifi server and you will loose Bluetooth connection.
 - Wait the upload and flash end, then it should reboot automatically
 
 ### iPhone
