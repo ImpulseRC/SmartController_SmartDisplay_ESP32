@@ -107,8 +107,8 @@ The software is designed for [ESP32 Dev Kit v4](https://docs.espressif.com/proje
 
 ## 3D parts
 <p float="left">
-  <img src="/img/3D_display2.png" width="100" />
-  <img src="/img/3D_buttons2.png" width="100" /> 
+  <img src="/img/3D_display2.png" width="50%" />
+  <img src="/img/3D_buttons2.png" width="50%" /> 
 </p>
 
 The display and buttons cases are availables here : [STL Parts](/stl/)
