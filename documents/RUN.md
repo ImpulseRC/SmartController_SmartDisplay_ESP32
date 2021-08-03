@@ -33,7 +33,7 @@ Firmwares are labeled as follow : `smart<xxx>_<yyyy>[_<zzzz>]`
 - Launch the application
 - Accept the connection to the device
 - Use the defaul pin code : 147258
- - Nota : You can change the pin code in the application settings page
+  - Nota : You can change the pin code in the application settings page
 - Enter the applicationsettings page
 - Configure the device
 
