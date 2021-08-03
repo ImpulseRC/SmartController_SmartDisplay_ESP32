@@ -52,7 +52,9 @@ Minimotors/Zero/Vsett wiring :
 
 VESC wiring : not connected
 
-## [CT] For controller cable
+## Ports
+
+### [CT] For controller cable
 
 Minimotors/Zero/Vsett wiring :
 - 1 - serial / controller to ESP
@@ -70,7 +72,7 @@ VESC wiring :
 - 5 - not connected
 - 6 - not connected
 
-## [BKO] Brake output
+### [BKO] Brake output
 
 Wiring :
 - no pin order (relay)
@@ -82,7 +84,7 @@ Wiring :
 - no pin order (relay)
 - max voltage/current : depends of Solid state relay you placed
 
-## [BKI] Brake input
+### [BKI] Brake input
 
 Analog brake wiring :
 - 1 - signal
@@ -94,14 +96,14 @@ Digital brake wiring :
 - 2 - not connected
 - 3 - brake switch
 
-## [WCS] WCS1700 current sensor
+### [WCS] WCS1700 current sensor
 
 Wiring:
 - 1 - signal
 - 2 - GND
 - 3 - 5V
 
-## [LCD] LCD display
+### [LCD] LCD display
 
 Wiring :
 - 1 - GND
@@ -113,14 +115,14 @@ Wiring :
 - 7 - Backlight control 3.3V
 - 8 - Backlight control 5V
 
-## [THR] Throttle signals
+### [THR] Throttle signals
 
 Wiring :
 - 1 - signal
 - 2 - GND
 - 3 - 5V
 
-## [BTN] Buttons & LEDs
+### [BTN] Buttons & LEDs
 
 Wiring :
 - 1 - button 1
@@ -129,24 +131,24 @@ Wiring :
 - 4 - button power
 - 5 - GND
 
-## [OW] Expansion board connector
+### [OW] Expansion board connector
 
 Reserved for PRO version.
 
-# Jumpers and other selections
+## Jumpers and other selections
 
-## [JTH] Throttle signal
+### [JTH] Throttle signal
 If you want to use the throttle curve modification of the Smart, solder 1&2 and 3&4 on the SMD jumper (don't bridge 2&3)
 If you don't want to modify the throttle signal, solder 2&3 on the SMD jumper.
 /!\ The throttle signal modification by the Smart boards is dangerous because if the software crash, the escooter motor can continue to accelerate even if the throttle is released. Multiple protections have been added, but the risk still exists. Use it at your own risks ! /!\
 
-## [JPWR] Power switch & source
+### [JPWR] Power switch & source
 For SmartDisplay, you have a power latch. It allows to power the board and the escooter from the power button (see "Buttons" connector).
 If you want to use the latch, close 1&2 on the SMD jumper.
 If your controller needs a power feedback, solder 1&2&3.
 For SmartController, you don't need to sodler anything.
 
-## [X] VESC UART in 3.3V
+### [X] VESC UART in 3.3V
 - remove R20, R10, R3
 - solder X jumper
 
