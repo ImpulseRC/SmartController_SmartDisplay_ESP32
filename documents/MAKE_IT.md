@@ -42,7 +42,7 @@ You can also add the external  :
 
 ## [LC] For original controller display cable
 
-Minimotors/Zero/Vsett wiring (left to right) :
+Minimotors/Zero/Vsett wiring :
 - 1 - serial / ESP to LCD
 - 2 - serial / LCD to ESP
 - 3 - throttle signal
@@ -55,18 +55,18 @@ VESC wiring : not connected
 ## [CT] For controller cable
 
 Minimotors/Zero/Vsett wiring :
-- 1 - black - serial / controller to ESP
-- 2 - red - serial / ESP to controller
-- 3 - orange or blue - throttle signal
-- 4 - white - GND
-- 5 - yellow - battery feedback
-- 6 - green - battery power
+- 1 - serial / controller to ESP
+- 2 - serial / ESP to controller
+- 3 - throttle signal
+- 4 - GND
+- 5 - battery feedback
+- 6 - battery power
 
 VESC wiring :
-- 1 - yellow - RX ESP / TX VESC
-- 2 - white - TX ESP / RX VESC
-- 3 - red - throttle
-- 4 - black - GND
+- 1 - RX ESP / TX VESC
+- 2 - TX ESP / RX VESC
+- 3 - throttle
+- 4 - GND
 - 5 - not connected
 - 6 - not connected
 
@@ -123,11 +123,11 @@ Wiring :
 ## [BTN] Buttons & LEDs
 
 Wiring :
-- 1 - button 1 - yellow
-- 2 - button 2 - brown
-- 3 - buttons LEDs - white
-- 4 - button power - green
-- 5 - GND - black
+- 1 - button 1
+- 2 - button 2
+- 3 - buttons LEDs
+- 4 - button power
+- 5 - GND
 
 ## [OW] Expansion board connector
 
