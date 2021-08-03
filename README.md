@@ -139,8 +139,9 @@ I have no skills in iPhone apps. If anyone wants to develop, let me know 😉
     - [✅] Brake forbiden on high voltage
     - [✅] Electric analog brake processing
     - [✅] Electric digital brake processing
-    - [ ] Dual VESC
+    - [ ] Dual VESC - **PRO Version**
       - [ ] Change speed limits
+      - [ ] Change current/acceleration limits
       - [ ] Get infos
     - [ ] Error codes processing
       - [ ] Temperature alarm
@@ -196,7 +197,10 @@ I have no skills in iPhone apps. If anyone wants to develop, let me know 😉
     - [✅] Send optocopler order
     - [✅] Internal temperature sensor
     - [✅] Throttle signal regeneration
-    - [IN PROGRESS 🔄] External expansion boards
+    - [IN PROGRESS 🔄] External expansion boards - **PRO Version**
+      - [✅] IO and sensors
+      - [IN PROGRESS 🔄] GPS & anti-theft
+      - [IN PROGRESS 🔄] Time and date 
 
 - [✅] Power 🔋
     - [✅] Convert 12V to 5V
@@ -260,8 +264,8 @@ I have no skills in iPhone apps. If anyone wants to develop, let me know 😉
     - [✅] Integrated settings help
     - [ ] Wizzard for calibrations
    
-- [ ] iPhone application 🍏
-    - [ ] A kind developper to do this part ? 😇
+- [✅] iPhone application 🍏
+    - use wifi dashboard
 
 ## Let's go ! :kick_scooter:
 
