@@ -504,7 +504,7 @@ void processDacOutput()
   uint32_t dacOutput = 0;
   uint32_t outputMilliv = 0;
 
-#if CONTROLLER_TYPE == CONTROLLER_VESC
+#if BUILD_CONTROLLER_VESC
   uint32_t minBrakeVoltage = 0;
   if (shrd.brakePercent > 1)
   {
