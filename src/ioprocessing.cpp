@@ -632,36 +632,38 @@ void processDHT()
 void processSHTC3(bool requestRead)
 {
 
-  if (requestRead)
+  if (shrd.shtc3_present)
   {
-    mySHTC3.requestDatas(); // Call "update()" to command a measurement, wait for measurement to complete, and update the RH and T members of the object
-  }
-  else
-  {
-    SHTC3_Status_TypeDef status = mySHTC3.readDatas();
-#if DEBUG_DISPLAY_SHTC3
-    Serial.print(mySHTC3.toPercent()); // "toPercent" returns the percent humidity as a floating point number
-    Serial.print("% / ");
-    Serial.print("T = ");
-    Serial.print(mySHTC3.toDegC()); // "toDegF" and "toDegC" return the temperature as a flaoting point number in deg F and deg C respectively
-    Serial.print(" deg C\n");
-#endif
-
-    if (status == SHTC3_Status_Nominal)
+    if (requestRead)
     {
-#if BUILD_CONTROLLER_MINIMOTORS || BUILD_CONTROLLER_ZERO
-      shrd.currentTemperature = mySHTC3.toDegC();
-      if (shrd.currentTemperature > shrd.maxTemperature)
-        shrd.maxTemperature = shrd.currentTemperature;
-#endif
-
-      shrd.currentHumidity = mySHTC3.toPercent();
+      mySHTC3.requestDatas(); // Call "update()" to command a measurement, wait for measurement to complete, and update the RH and T members of the object
     }
     else
     {
+      SHTC3_Status_TypeDef status = mySHTC3.readDatas();
+#if DEBUG_DISPLAY_SHTC3
+      Serial.print(mySHTC3.toPercent()); // "toPercent" returns the percent humidity as a floating point number
+      Serial.print("% / ");
+      Serial.print("T = ");
+      Serial.print(mySHTC3.toDegC()); // "toDegF" and "toDegC" return the temperature as a flaoting point number in deg F and deg C respectively
+      Serial.print(" deg C\n");
+#endif
+
+      if (status == SHTC3_Status_Nominal)
+      {
+#if BUILD_CONTROLLER_MINIMOTORS || BUILD_CONTROLLER_ZERO
+        shrd.currentTemperature = mySHTC3.toDegC();
+        if (shrd.currentTemperature > shrd.maxTemperature)
+          shrd.maxTemperature = shrd.currentTemperature;
+#endif
+
+        shrd.currentHumidity = mySHTC3.toPercent();
+      }
+      else
+      {
+      }
     }
   }
-
 #if DEBUG_FAKE_TEMPERATURE
   shrd.currentTemperature = 26;
 #endif
