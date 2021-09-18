@@ -90,7 +90,6 @@ MENU(mainMenu,"  Main menu",doNothing,noEvent,noStyle //
         {%- endif %}
     {%- endfor %}
 {%- endfor %}
-    ,SUBMENU(SUBMENU_MANUAL_calibrations) //
     ,SUBMENU(SUBMENU_MANUAL_more) //
     ,OP("< Discard & exit", discard_exit,enterEvent) //
     ,OP("< Save & exit", save_exit,enterEvent) //

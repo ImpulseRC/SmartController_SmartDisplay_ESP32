@@ -19,8 +19,6 @@ public:
     void displaySettings1();
 
     void saveBleLockForced();
-    void saveBrakeMaxPressure();
-    void saveBrakeMinPressure();
     void saveOdo();
     void saveBatteryCalib();
 
@@ -30,8 +28,6 @@ private:
 
     void restoreMode();
     void restoreBleLockForced();
-    void restoreBrakeMaxPressure();
-    void restoreBrakeMinPressure();
     void restoreOdo();
     void restoreBatteryCalib();
 

@@ -174,6 +174,7 @@ void getBrakeFromAnalog()
 
   shrd.brakeAnalogValue = analogRead(PIN_IN_ABRAKE);
 
+
   if (settings.get_Ebrake_smart_brake_type() == settings.LIST_Ebrake_smart_brake_type_Smart__analog_brake_lever)
   {
 
@@ -506,7 +507,6 @@ void processDacOutput()
 
   shrd.pasEnabled = settings.get_Pas_enabled();
 
-  uint32_t dacOutput = 0;
   uint32_t outputMilliv = 0;
 
 #if BUILD_CONTROLLER_VESC
@@ -560,27 +560,27 @@ void processDacOutput()
 #endif
 
   // compute DAC output
-  dacOutput = outputMilliv / (ANALOG_TO_VOLTS_5V * 1000);
-  dacOutput = constrain(dacOutput, 0, 4095);
-  dac.setVoltage(dacOutput, false, I2C_FREQ);
+  shrd.dacOutput = outputMilliv / (ANALOG_TO_VOLTS_5V * 1000);
+  shrd.dacOutput = constrain(shrd.dacOutput, 0, 4095);
+  dac.setVoltage(shrd.dacOutput, false, I2C_FREQ);
 
 #if DEBUG_DISPLAY_DAC_OUTPUT
-  char print_buffer[500];
-  sprintf(print_buffer, "filteredThrottleIn : %d / tInMillv : %d / tInMin : %d / tInMax : %d / rangeInMilliv : %d / tPercent = %2.2f / bAnalogValue = %d / bFilterMeanErr = %d / bPercent = %2.2f / outputMilliv = %d / dacOutput = %d",
-          filteredThrottleIn,
-          throttleInMillv,
-          tInMin,
-          tInMax,
-          rangeInMilliv,
-          shrd.throttlePercent,
-          shrd.brakeAnalogValue,
-          shrd.brakeFilterMeanErr,
-          shrd.brakePercent,
-          outputMilliv,
-          dacOutput);
-
   if (millis() % 500 == 0)
   {
+    char print_buffer[500];
+    sprintf(print_buffer, "filteredThrottleIn : %d / tInMillv : %d / tInMin : %d / tInMax : %d / rangeInMilliv : %d / tPercent = %2.2f / bAnalogValue = %d / bFilterMeanErr = %d / bPercent = %2.2f / outputMilliv = %d / dacOutput = %d",
+            filteredThrottleIn,
+            throttleInMillv,
+            tInMin,
+            tInMax,
+            rangeInMilliv,
+            shrd.throttlePercent,
+            shrd.brakeAnalogValue,
+            shrd.brakeFilterMeanErr,
+            shrd.brakePercent,
+            outputMilliv,
+            shrd.dacOutput);
+
     blh.notifyBleLogs(print_buffer);
     Serial.println(print_buffer);
   }

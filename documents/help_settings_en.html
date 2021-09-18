@@ -269,6 +269,20 @@ Default value : 0<br>
 <br>
 Usage : If you enable the electric progressive mode, the braking feedback must arrive to the SmartElec device. <b>There is mulitple possibilities to wire the brake on the SmartElec and you MUST select the brake type according to your wiring</b> :<br>- Controller : no specific wiring required, the brake feedback will come from the controller. This is slower and will add a delay of 200/300ms between the brake pressure and the electric brake activation. The brake force will be determined by the brake lever pressure time. Longer you press, stronger the electric brake will become.<br>- Smart - Digital brake lever : a standard on/off brake lever is wired directly to the SmartElec device. This wiring has a faster reaction. The brake force will be determined by the brake lever pressure time. Longer you press, stronger the electric brake will become.<br>- Smart - Analog brake lever : an analog brake lever (xiaomi type or any hall sensor brake lever) is wired to directly to the SmartElec device. This wiring is the best. The brake force will be determined by the brake lever pressure force.<br>- Smart - Digital brake + throttle (experimental) : a standard on/off brake lever is wired directly to the SmartElec device and the throttle pressure set the brake force. You will need time to use this mode when riding.<br>
                 
+<h3>Input min voltage (in millivolts)</h3>
+Valid configuration : SmartController / SmartDisplay<br>
+Default value : 650 (millivolts)<br>
+<br>
+Usage : Throttle input signal voltage when the throttle is released.
+Note : if the motor is spinning when the throttle is not pressed, try to decrease this value.<br>
+                
+<h3>Input max voltage (in millivolts)</h3>
+Valid configuration : SmartController / SmartDisplay<br>
+Default value : 3950 (millivolts)<br>
+<br>
+Usage : Throttle input signal voltage when the throttle is fully pressed
+Note : if the motor is not reaching max speed when the throttle is pressed, try to increase this value.<br>
+                
 <h3>Min power value</h3>
 Valid configuration : SmartController / SmartDisplay<br>
 Default value : 1<br>

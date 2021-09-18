@@ -47,6 +47,7 @@ result save_exit()
 ////////////////////////////////////////////////
 // Menu processing functions
 
+/*
 class ebrake_calib_min_item : public prompt
 {
 public:
@@ -100,6 +101,7 @@ result calibration_brake_max_action(eventMask e) {
   }
   return proceed;
 }
+*/
 
 class currrent_temperature_item : public prompt
 {
@@ -317,6 +319,7 @@ result reset_ble_pin_code_item()
   return proceed;
 }
 
+/*
 result calibration_brake_min_item()
 {
 
@@ -333,6 +336,7 @@ result calibration_brake_max_item()
   saveBrakeMaxPressure();
   return proceed;
 }
+*/
 
 result ota_update_pio()
 {
@@ -365,10 +369,12 @@ MENU(SUBMENU_MANUAL_status, "  Status", doNothing, noEvent, noStyle,
       anyEvent=~0
       */
 
+/*
 MENU(SUBMENU_MANUAL_calibrations, "  Calibrations", doNothing, noEvent, noStyle,
      altOP(ebrake_calib_min_item, "", calibration_brake_min_action, anyEvent),      // updateEvent
      altOP(ebrake_calib_max_item, "", calibration_brake_max_action, anyEvent),      // updateEvent
      EXIT("< Back"));
+*/
 
 MENU(SUBMENU_MANUAL_more, "  More", doNothing, noEvent, noStyle,
      altOP(firmware_type_item, "", doNothing, updateEvent),    // updateEvent

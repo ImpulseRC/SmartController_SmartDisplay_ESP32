@@ -8,8 +8,6 @@
 
 // Settings2
 #define PREF_bleLockForced "bleLockForced"
-#define PREF_brkMinPressRaw "brkMinPressRaw"
-#define PREF_brkMaxPressRaw "brkMaxPressRaw"
 #define PREF_distanceOdo "distanceOdo"
 #define PREF_bMaxCalibUser "bMaxCalibUser"
 #define PREF_bMaxCalibRaw "bMaxCalibRaw"
@@ -24,8 +22,6 @@ void Settings2::setSharedData(SharedData *data)
 void Settings2::restore()
 {
   restoreBleLockForced();
-  restoreBrakeMinPressure();
-  restoreBrakeMaxPressure();
   restoreOdo();
   restoreBatteryCalib();
 }
@@ -48,53 +44,6 @@ void Settings2::restoreBleLockForced()
 
   Serial.print("restore bleLockForced value : ");
   Serial.println(shrd->isLocked);
-}
-
-void Settings2::saveBrakeMinPressure()
-{
-
-  prefs.begin(APP_STORAGE, false);
-  prefs.putInt(PREF_brkMinPressRaw, shrd->brakeMinPressureRaw);
-  prefs.end();
-
-  Serial.print("save saveBrakeMinPressure value : ");
-  Serial.println(shrd->brakeMinPressureRaw);
-}
-
-void Settings2::restoreBrakeMinPressure()
-{
-  prefs.begin(APP_STORAGE, false);
-  shrd->brakeMinPressureRaw = prefs.getInt(PREF_brkMinPressRaw, 900);
-  prefs.end();
-
-  Serial.print("restore restoreBrakeMinPressure value : ");
-  Serial.println(shrd->brakeMinPressureRaw);
-
-  if (shrd->brakeMinPressureRaw == -1)
-    shrd->brakeMinPressureRaw = ANALOG_BRAKE_MIN_VALUE;
-}
-
-void Settings2::saveBrakeMaxPressure()
-{
-  prefs.begin(APP_STORAGE, false);
-  prefs.putInt(PREF_brkMaxPressRaw, shrd->brakeMaxPressureRaw);
-  prefs.end();
-
-  Serial.print("save saveBrakeMaxPressure value : ");
-  Serial.println(shrd->brakeMaxPressureRaw);
-}
-
-void Settings2::restoreBrakeMaxPressure()
-{
-  prefs.begin(APP_STORAGE, false);
-  shrd->brakeMaxPressureRaw = prefs.getInt(PREF_brkMaxPressRaw, 2000);
-  prefs.end();
-
-  Serial.print("restore restoreBrakeMaxPressure value : ");
-  Serial.println(shrd->brakeMaxPressureRaw);
-
-  if (shrd->brakeMaxPressureRaw == -1)
-    shrd->brakeMaxPressureRaw = ANALOG_BRAKE_MAX_VALUE;
 }
 
 void Settings2::saveOdo()

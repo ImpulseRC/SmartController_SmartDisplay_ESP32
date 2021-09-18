@@ -33,6 +33,7 @@
 #define LOGS_CHARACTERISTIC_UUID "beb5483e-36e1-4688-b7f5-ea07361b26af"
 #define FAST_UPDATE_CHARACTERISTIC_UUID "beb5483e-36e1-4688-b7f5-ea07361b26b0"
 #define DISTANCE_RST_CHARACTERISTIC_UUID "beb5483e-36e1-4688-b7f5-ea07361b26b5"
+#define ADC_DAC_CHARACTERISTIC_UUID "beb5483e-36e1-4688-b7f5-ea07361b26b6"
 #define SETTINGS_ACTION_CHARACTERISTIC_UUID "beb5483e-36e1-4688-b7f5-ea07361b26fe"
 #define SETTINGS_DATA_CHARACTERISTIC_UUID "beb5483e-36e1-4688-b7f5-ea07361b26ff"
 
@@ -54,6 +55,7 @@ NimBLECharacteristic *BluetoothHandler::pCharacteristicOtaSwitch;
 NimBLECharacteristic *BluetoothHandler::pCharacteristicLogs;
 NimBLECharacteristic *BluetoothHandler::pCharacteristicDistanceRst;
 NimBLECharacteristic *BluetoothHandler::pCharacteristicCommands;
+NimBLECharacteristic *BluetoothHandler::pCharacteristicAdcDac;
 
 // Settings services
 NimBLECharacteristic *BluetoothHandler::pCharacteristicSettingsGen;
@@ -226,17 +228,8 @@ void BluetoothHandler::init()
                 int valueInt;
                 memcpy(&valueInt, &rxValue[1], 4);
 
-                //BrakeMaxPressure(0),
-                if (rxValue[0] == 0)
-                {
-                    shrd->brakeMaxPressureRaw = shrd->brakeAnalogValue;
-                    saveBrakeMaxPressure();
-
-                    Serial.print("BLH - brake max current raw value :");
-                    Serial.println(shrd->brakeAnalogValue);
-                }
                 //BatMaxVoltage(1),
-                else if (rxValue[0] == 1)
+                if (rxValue[0] == 1)
                 {
                     shrd->batteryMaxVoltageCalibUser = valueInt / 10.0;
                     shrd->batteryMaxVoltageCalibRaw = shrd->voltageRawFilterMean;
@@ -263,15 +256,6 @@ void BluetoothHandler::init()
                 else if (rxValue[0] == 3)
                 {
                     //shrd->currentCalibOrder = valueInt;
-                }
-                //BrakeMinPressure(4),
-                else if (rxValue[0] == 4)
-                {
-                    shrd->brakeMinPressureRaw = shrd->brakeAnalogValue;
-                    saveBrakeMinPressure();
-
-                    Serial.print("BLH - brake min current raw value :");
-                    Serial.println(shrd->brakeAnalogValue);
                 }
 
                 char print_buffer[500];
@@ -357,6 +341,9 @@ void BluetoothHandler::init()
                 {
                     settings->save();
                     Serial.println("BLH - save");
+                    
+                    // dirty patch
+                    convertBrakePressure();
 
                     startBleScan();
                     Serial.println("BLH - startBleScan");
@@ -409,7 +396,20 @@ void BluetoothHandler::init()
             }
             else if (pCharacteristic->getUUID().toString() == SETTINGS_DATA_CHARACTERISTIC_UUID)
             {
-                Serial.print("BLH - unknown read command");
+                Serial.print("BLH - Read SETTINGS_DATA_CHARACTERISTIC_UUID ==> nothing to do");
+            }
+            else if (pCharacteristic->getUUID().toString() == ADC_DAC_CHARACTERISTIC_UUID)
+            {
+                Serial.println("BLH - Read : ADC_DAC_CHARACTERISTIC_UUID");
+
+                int nb_bytes = setAdcDacDataPacket(pCharacteristic);
+                Serial.print("BLH - Read adcdac : nb bytes = ");
+                Serial.println(nb_bytes);
+            }
+            else
+            {
+                const String uuid = pCharacteristic->getUUID().toString().c_str();
+                Serial.println("BLH - Read : unknown " + uuid);
             }
         }
 
@@ -528,6 +528,13 @@ void BluetoothHandler::init()
             NIMBLE_PROPERTY::WRITE_AUTHEN |
             NIMBLE_PROPERTY::READ_AUTHEN);
 
+    pCharacteristicAdcDac = pServiceMain->createCharacteristic(
+        ADC_DAC_CHARACTERISTIC_UUID,
+        NIMBLE_PROPERTY::READ |
+            NIMBLE_PROPERTY::WRITE_NR |
+            NIMBLE_PROPERTY::WRITE_AUTHEN |
+            NIMBLE_PROPERTY::READ_AUTHEN);
+
     //-------------------
     // services firmware
 
@@ -558,6 +565,7 @@ void BluetoothHandler::init()
     pCharacteristicLogs->setCallbacks(new BLECharacteristicCallback());
     pCharacteristicDistanceRst->setCallbacks(new BLECharacteristicCallback());
     pCharacteristicCommands->setCallbacks(new BLECharacteristicCallback());
+    pCharacteristicAdcDac->setCallbacks(new BLECharacteristicCallback());
 
     pCharacteristicSettingsGen->setCallbacks(new BLECharacteristicCallback());
     pCharacteristicSettingsAction->setCallbacks(new BLECharacteristicCallback());
@@ -897,6 +905,37 @@ uint8_t BluetoothHandler::setCommandsDataPacket()
 
 #if DEBUG_BLE_DISPLAY_COMMANDSFEEDBACK
         buffer_display("setCommandsDataPacket : ", txValue, ind);
+#endif
+    }
+    else
+    {
+        Serial.println("deviceStatus = " + (String)deviceStatus);
+    }
+    return ind;
+}
+
+uint8_t BluetoothHandler::setAdcDacDataPacket(NimBLECharacteristic *pCharacteristic)
+{
+#if DEBUG_BLE_DISPLAY_ADCDAC
+    Serial.println("setAdcDacDataPacket");
+#endif
+
+    int32_t ind = 0;
+
+    if (deviceStatus == BLE_STATUS_CONNECTED_AND_AUTHENTIFIED)
+    {
+        uint8_t txValue[20];
+
+        buffer_append_uint16_inv(txValue, shrd->throttleAnalogValue, &ind);
+        buffer_append_uint8(txValue, shrd->throttlePercent, &ind);
+        buffer_append_uint16_inv(txValue, shrd->brakeAnalogValue, &ind);
+        buffer_append_uint8(txValue, shrd->brakePercent, &ind);
+        buffer_append_uint16_inv(txValue, shrd->dacOutput, &ind);
+
+        pCharacteristicAdcDac->setValue((uint8_t *)&txValue[0], ind);
+
+#if DEBUG_BLE_DISPLAY_ADCDAC
+        buffer_display("setAdcDacDataPacket : ", txValue, ind);
 #endif
     }
     else

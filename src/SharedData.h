@@ -95,10 +95,10 @@ public:
     uint32_t brakeFilterMeanErr = 0;
     int32_t brakeDigitalTimeStart = 0xffffffff;
 
+    uint16_t dacOutput = 0;
+
     uint32_t throttleAnalogValue = 0;
     float throttlePercent = 0.0;
-
-    uint32_t brakeMaxCalibOrder = 1;
 
     uint32_t voltageActual = 0;
     uint32_t voltageFilterMean = 0;

@@ -186,6 +186,7 @@ void WifiSettingsPortal_setup()
                 server.send(404, "text/plain", "FileNotFound");
               }
             });
+            /*
   server.on("/calibpage", HTTP_GET, []()
             {
               if (!handleFileRead("/calib.html"))
@@ -193,6 +194,7 @@ void WifiSettingsPortal_setup()
                 server.send(404, "text/plain", "FileNotFound");
               }
             });
+            */
   server.on("/otapage", HTTP_GET, []()
             {
               if (!handleFileRead("/ota.html"))
@@ -257,7 +259,7 @@ void WifiSettingsPortal_setup()
               server.send(200, "application/json", str);
               return String();
             });
-
+/*
   // calibration
   server.on("/calibpage", HTTP_POST, []()
             {
@@ -287,6 +289,7 @@ void WifiSettingsPortal_setup()
               }
               return String();
             });
+*/
 
   // Load a custom web page described in JSON as PAGE_ELEMENT and
   // register a handler. This handler will be invoked from
@@ -324,7 +327,7 @@ void WifiSettingsPortal_setup()
   // In the setup(),
   // Join the custom Web pages and performs begin
   portal.append("/dashboardpage", "SmartElec dashboard");
-  portal.append("/calibpage", "SmartElec calibration");
+//  portal.append("/calibpage", "SmartElec calibration");
   portal.append("/otapage", "SmartElec firmware update");
 
   portal.join({settingsPageAux, settingsSaveAux /*, calibPageAux, otaPageAux, otaFlashAux*/});

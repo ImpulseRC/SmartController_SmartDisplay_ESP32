@@ -211,14 +211,6 @@ void saveBleLockForced()
 {
   settings2.saveBleLockForced();
 }
-void saveBrakeMinPressure()
-{
-  settings2.saveBrakeMinPressure();
-}
-void saveBrakeMaxPressure()
-{
-  settings2.saveBrakeMaxPressure();
-}
 void saveOdo()
 {
   settings2.saveOdo();
@@ -226,6 +218,15 @@ void saveOdo()
 void saveBatteryCalib()
 {
   settings2.saveBatteryCalib();
+}
+void convertBrakePressure()
+{
+  
+  // init brake pressures .... dirty patch
+  shrd.brakeMinPressureRaw = (settings.get_Ebrake_input_min_voltage() / 1000.0 / ANALOG_TO_VOLTS_5V) + 200;
+  shrd.brakeMaxPressureRaw = settings.get_Ebrake_input_max_voltage() / 1000.0 / ANALOG_TO_VOLTS_5V;
+  Serial.println("        brakeMinPressureRaw = "  + (String)shrd.brakeMinPressureRaw);
+  Serial.println("        brakeMaxPressureRaw = "  + (String)shrd.brakeMaxPressureRaw);
 }
 void initSharedDataWithSettings()
 {
@@ -236,6 +237,9 @@ void initSharedDataWithSettings()
   shrd.accelOrder = settings.get_Default_acceleration();
   shrd.brakeSentOrder = settings.get_Default_electric_brake_at_startup();
   shrd.brakeSentOrderFromBLE = settings.get_Default_electric_brake_at_startup();
+  
+  convertBrakePressure();
+
 }
 
 #if ENABLE_WATCHDOG
@@ -949,6 +953,10 @@ void loop()
     if (shrd.errorSerialFromContrl)
     {
       blh.notifyBleLogs((char *)"serial controller error");
+    }
+    if (shrd.errorI2cDAC)
+    {
+      blh.notifyBleLogs((char *)"DAC error");
     }
   }
 

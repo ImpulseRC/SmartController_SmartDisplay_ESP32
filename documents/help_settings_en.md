@@ -251,6 +251,20 @@ Usage : If you enable the electric progressive mode, the braking feedback must a
 - Smart - Analog brake lever : an analog brake lever (xiaomi type or any hall sensor brake lever) is wired to directly to the SmartElec device. This wiring is the best. The brake force will be determined by the brake lever pressure force.
 - Smart - Digital brake + throttle (experimental) : a standard on/off brake lever is wired directly to the SmartElec device and the throttle pressure set the brake force. You will need time to use this mode when riding.<br>
                 
+### Input min voltage (in millivolts)
+Valid configuration : SmartController / SmartDisplay<br>
+Default value : 650 (millivolts)<br>
+<br>
+Usage : Throttle input signal voltage when the throttle is released.
+Note : if the motor is spinning when the throttle is not pressed, try to decrease this value.<br>
+                
+### Input max voltage (in millivolts)
+Valid configuration : SmartController / SmartDisplay<br>
+Default value : 3950 (millivolts)<br>
+<br>
+Usage : Throttle input signal voltage when the throttle is fully pressed
+Note : if the motor is not reaching max speed when the throttle is pressed, try to increase this value.<br>
+                
 ### Min power value
 Valid configuration : SmartController / SmartDisplay<br>
 Default value : 1<br>

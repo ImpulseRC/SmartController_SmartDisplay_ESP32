@@ -30,8 +30,7 @@ void disableWatchdog();
 
 void saveBleLockForced();
 void restoreBleLockForced();
-void saveBrakeMinPressure();
-void saveBrakeMaxPressure();
+void convertBrakePressure();
 void saveOdo();
 void saveBatteryCalib();
 void saveSettings();

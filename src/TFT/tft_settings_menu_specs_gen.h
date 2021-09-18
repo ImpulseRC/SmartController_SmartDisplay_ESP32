@@ -94,6 +94,8 @@ TOGGLE(tft_Ebrake_smart_brake_type, tft_Ebrake_smart_brake_type_LIST,"  Type ",d
     ,VALUE("Smart - Analog brake lever", 2 ,doNothing,noEvent) //
     ,VALUE("Smart - Digital brake + throttle (exp)", 3 ,doNothing,noEvent) //
 );
+uint32_t tft_Ebrake_input_min_voltage = 650;
+uint32_t tft_Ebrake_input_max_voltage = 3950;
 uint8_t tft_Ebrake_min_power_value = 1;
 uint8_t tft_Ebrake_max_power_value = 5;
 uint32_t tft_Ebrake_time_between_mode_shift = 500;
@@ -192,6 +194,8 @@ MENU(SUBMENU_SmartDisplay,"  SmartDisplay",doNothing,noEvent,noStyle //
 MENU(SUBMENU_Electric_brake,"  Electric brake",doNothing,noEvent,noStyle //
     ,SUBMENU(tft_Ebrake_progressive_mode_LIST) //
     ,SUBMENU(tft_Ebrake_smart_brake_type_LIST) //
+    ,FIELD(tft_Ebrake_input_min_voltage,"  Input min voltage "," mV", 500, 1500, 100, 50, doNothing,noEvent,noStyle) //
+    ,FIELD(tft_Ebrake_input_max_voltage,"  Input max voltage "," mV", 2500, 5000, 100, 50, doNothing,noEvent,noStyle) //
     ,FIELD(tft_Ebrake_min_power_value,"  Min value "," ", 0, 5, 1, 1, doNothing,noEvent,noStyle) //
     ,FIELD(tft_Ebrake_max_power_value,"  Max value "," ", 0, 5, 1, 1, doNothing,noEvent,noStyle) //
     ,FIELD(tft_Ebrake_time_between_mode_shift,"  Time between mode shift "," ms", 100, 2000, 100, 50, doNothing,noEvent,noStyle) //
@@ -231,7 +235,6 @@ MENU(mainMenu,"  Main menu",doNothing,noEvent,noStyle //
     ,SUBMENU(SUBMENU_Electric_brake) //
     ,SUBMENU(SUBMENU_Throttle) //
     ,SUBMENU(SUBMENU_Escooter_buttons) //
-    ,SUBMENU(SUBMENU_MANUAL_calibrations) //
     ,SUBMENU(SUBMENU_MANUAL_more) //
     ,OP("< Discard & exit", discard_exit,enterEvent) //
     ,OP("< Save & exit", save_exit,enterEvent) //
@@ -262,6 +265,8 @@ void settings_menu_init_from_settings() {
     tft_Rotate_screen = TFT_menu_settings->get_Rotate_screen();
     tft_Ebrake_progressive_mode = TFT_menu_settings->get_Ebrake_progressive_mode();
     tft_Ebrake_smart_brake_type = TFT_menu_settings->get_Ebrake_smart_brake_type();
+    tft_Ebrake_input_min_voltage = TFT_menu_settings->get_Ebrake_input_min_voltage();
+    tft_Ebrake_input_max_voltage = TFT_menu_settings->get_Ebrake_input_max_voltage();
     tft_Ebrake_min_power_value = TFT_menu_settings->get_Ebrake_min_power_value();
     tft_Ebrake_max_power_value = TFT_menu_settings->get_Ebrake_max_power_value();
     tft_Ebrake_time_between_mode_shift = TFT_menu_settings->get_Ebrake_time_between_mode_shift();
@@ -302,6 +307,8 @@ void settings_menu_save_to_settings() {
     TFT_menu_settings->set_Rotate_screen(tft_Rotate_screen);
     TFT_menu_settings->set_Ebrake_progressive_mode(tft_Ebrake_progressive_mode);
     TFT_menu_settings->set_Ebrake_smart_brake_type(tft_Ebrake_smart_brake_type);
+    TFT_menu_settings->set_Ebrake_input_min_voltage(tft_Ebrake_input_min_voltage);
+    TFT_menu_settings->set_Ebrake_input_max_voltage(tft_Ebrake_input_max_voltage);
     TFT_menu_settings->set_Ebrake_min_power_value(tft_Ebrake_min_power_value);
     TFT_menu_settings->set_Ebrake_max_power_value(tft_Ebrake_max_power_value);
     TFT_menu_settings->set_Ebrake_time_between_mode_shift(tft_Ebrake_time_between_mode_shift);

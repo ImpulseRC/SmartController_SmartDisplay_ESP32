@@ -1,7 +1,7 @@
 #include <SPI.h>
 
 #include "SPIFFS.h"
-#include "AnimatedGIF.h"
+#include "TFT/AnimatedGIF/AnimatedGIF.h"
 
 #include "tft_main.h"
 #include "tft_colors.h"
@@ -446,7 +446,6 @@ void tftUpdateData(uint32_t i_loop)
     // init TFT
     tft.begin();
     tft.invertDisplay(1);
-
     if (settings.get_Rotate_screen() == settings.LIST_Rotate_screen_Normal) 
       tft.setRotation(3);
     else
@@ -514,9 +513,10 @@ void tftUpdateData(uint32_t i_loop)
     tft.setTextDatum(BR_DATUM);
     tft.drawString(txt_volts, COLUMN4, LINE_2Y - LINE_TEXT_OFFSET, GFXFF);
     tft.drawString(txt_auton, COLUMN3, LINE_2Y - LINE_TEXT_OFFSET, GFXFF);
-    tft.drawString(txt_power, COLUMN2, LINE_4Y - LINE_TEXT_OFFSET, GFXFF);
     tft.drawString(txt_time, COLUMN6, LINE_4Y - LINE_TEXT_OFFSET, GFXFF);
     tft.drawString(txt_trip, COLUMN9, LINE_4Y - LINE_TEXT_OFFSET, GFXFF);
+    if (shrd.vesc_present || shrd.owb_ds9990_present || shrd.shtc3_present || shrd.currentSensorPresent > 0)
+      tft.drawString(txt_power, COLUMN2, LINE_4Y - LINE_TEXT_OFFSET, GFXFF);
 
     // draw interface - units
     tft.setFreeFont(FONT_UNIT);
@@ -526,8 +526,11 @@ void tftUpdateData(uint32_t i_loop)
     tft.drawString(txt_km, COLUMN3 + UNIT_LEFT_MARGIN, LINE_2Y_UNIT, GFXFF);
     // voltage "volts"
     tft.drawString(txt_v, COLUMN4 + UNIT_LEFT_MARGIN, LINE_2Y_UNIT, GFXFF);
+
     // power "watts"
-    tft.drawString(txt_w, COLUMN2 + UNIT_LEFT_MARGIN, LINE_4Y_UNIT, GFXFF);
+    if (shrd.vesc_present || shrd.owb_ds9990_present || shrd.shtc3_present || shrd.currentSensorPresent > 0)
+      tft.drawString(txt_w, COLUMN2 + UNIT_LEFT_MARGIN, LINE_4Y_UNIT, GFXFF);
+
     // trip "km/h"
     tft.drawString(txt_km, COLUMN9 + UNIT_LEFT_MARGIN, LINE_4Y_UNIT, GFXFF);
 
@@ -577,6 +580,9 @@ void tftUpdateData(uint32_t i_loop)
     else if (old_substate_ota == 2)
     {
 
+      // Wait for wifi connection
+      delay(500);
+
       // Display flashing informations
 #if ((TFT_MODEL == 2) || (TFT_MODEL == 3)) // 3.5"
       tft.setFreeFont(FONT_FORCED_SQUARE12pt7b);
@@ -599,12 +605,29 @@ void tftUpdateData(uint32_t i_loop)
 
       String wifiStr = "";
       if (shrd.inOtaMode == OTA_IDE)
-        wifiStr = "Wifi : " + settings.get_Wifi_ssid() + " / IP : " + WiFi.localIP().toString();
-      else
-        wifiStr = "Wifi : " + settings.get_Wifi_ssid();
-      tft.drawString(wifiStr, TFT_HEIGHT / 2, 230, GFXFF);
+      {
+        if (WiFi.localIP().toString() != "0.0.0.0")
+        {
+          wifiStr = "Wifi : " + settings.get_Wifi_ssid() + " / IP : " + WiFi.localIP().toString();
+          tft.drawString(wifiStr, TFT_HEIGHT / 2, 230, GFXFF);
 
-      old_substate_ota++;
+          old_substate_ota++;
+        }
+        else
+        {
+          wifiStr = "Wifi : " + settings.get_Wifi_ssid() + " / IP : waiting";
+          tft.drawString(wifiStr, TFT_HEIGHT / 2, 230, GFXFF);
+
+          // wait for wifi connection
+          delay(500);
+        }
+      }
+      else
+      {
+        wifiStr = "Wifi : " + settings.get_Wifi_ssid();
+        tft.drawString(wifiStr, TFT_HEIGHT / 2, 230, GFXFF);
+        old_substate_ota++;
+      }
     }
   }
   else
@@ -672,60 +695,65 @@ void tftUpdateData(uint32_t i_loop)
       String txt_unit;
       bool shouldClear = false;
 
-      if ((shrd.currentSensorPresent > 0) && (!(shrd.speedCurrent == 0 && shrd.brakePressedStatus == 1)))
+      if (shrd.vesc_present || shrd.owb_ds9990_present || shrd.shtc3_present || shrd.currentSensorPresent > 0)
       {
-        // CASE POWER (With current sensor)
-        txt_label = "  " + (String)txt_power;
-        txt_unit = "W ";
-        data = ((shrd.currentActual / 1000.0) * (shrd.voltageActual / 1000.0));
-        data = constrain(data, -50, 65535);
-        sprintf(fmt, "%05.0f", data);
-
-        // check substate change
-        if (old_substate_case3 == 1)
+        if ((shrd.currentSensorPresent > 0) && (!(shrd.speedCurrent == 0 && shrd.brakePressedStatus == 1)))
         {
-          shouldClear = true;
-        }
-        old_substate_case3 = 0;
-      }
-      else
-      {
-        // CASE TEMP (Without current sensor, by default)
-        txt_label = "       " + (String)txt_temp;
-        txt_unit = "C ";
-        data = shrd.currentTemperature;
-        sprintf(fmt, "%02.0f", data);
+          // CASE POWER (With current sensor)
+          txt_label = "  " + (String)txt_power;
+          txt_unit = "W ";
+          data = ((shrd.currentActual / 1000.0) * (shrd.voltageActual / 1000.0));
+          data = constrain(data, 0, 65535);
+          sprintf(fmt, "%05.0f", data);
 
-        // check substate change
-        if (old_substate_case3 == 0)
+          // check substate change
+          if (old_substate_case3 == 1)
+          {
+            shouldClear = true;
+          }
+          old_substate_case3 = 0;
+        }
+        else
         {
-          shouldClear = true;
+          // CASE TEMP (Without current sensor, by default)
+          txt_label = "       " + (String)txt_temp;
+          txt_unit = "C ";
+          if (shrd.currentMotorTemperature > -45)
+            sprintf(fmt, "%02.0f %02.0f", shrd.currentTemperature, shrd.currentMotorTemperature);
+          else
+            sprintf(fmt, "%02.0f", shrd.currentTemperature);
+
+          // check substate change
+          if (old_substate_case3 == 0)
+          {
+            shouldClear = true;
+          }
+          old_substate_case3 = 1;
         }
-        old_substate_case3 = 1;
+
+        if (shouldClear)
+        {
+          // Clear number space
+          tft.fillRect(0, LINE_4Y, COLUMN2, (SMALLEST_FONT_SIZE * 5), TFT_BLACK);
+
+          // Draw label
+          tft.setTextColor(TFT_RED, TFT_BLACK);                                  //LABEL
+          tft.setTextDatum(BR_DATUM);                                            //LABEL
+          tft.setFreeFont(FONT_RED_LABEL);                                       //LABEL SIZE/FONT
+          tft.drawString(txt_label, COLUMN2, LINE_4Y - LINE_TEXT_OFFSET, GFXFF); //DRAW LABEL ON DISPLAY
+
+          // Draw unit
+          tft.setTextColor(MY_TFT_WHITE, TFT_BLACK);                                 //UNIT
+          tft.setTextDatum(BL_DATUM);                                                //UNIT
+          tft.setFreeFont(FONT_UNIT);                                                //UNIT SIZE/FONT
+          tft.drawString(txt_unit, COLUMN2 + UNIT_LEFT_MARGIN, LINE_4Y_UNIT, GFXFF); //DRAW UNIT ON DISPLAY
+
+          // Switch font back
+          tft.setFreeFont(FONT_NUMBER); //SET FONT FOR DATA
+        }
+
+        tft_util_draw_number(&tft, fmt, COLUMN2, LINE_4Y, MY_TFT_WHITE, TFT_BLACK, 5, SMALLEST_FONT_SIZE); //DRAW DATA
       }
-
-      if (shouldClear)
-      {
-        // Clear number space
-        tft.fillRect(0, LINE_4Y, COLUMN2, (SMALLEST_FONT_SIZE * 5), TFT_BLACK);
-
-        // Draw label
-        tft.setTextColor(TFT_RED, TFT_BLACK);                                  //LABEL
-        tft.setTextDatum(BR_DATUM);                                            //LABEL
-        tft.setFreeFont(FONT_RED_LABEL);                                       //LABEL SIZE/FONT
-        tft.drawString(txt_label, COLUMN2, LINE_4Y - LINE_TEXT_OFFSET, GFXFF); //DRAW LABEL ON DISPLAY
-
-        // Draw unit
-        tft.setTextColor(MY_TFT_WHITE, TFT_BLACK);                                 //UNIT
-        tft.setTextDatum(BL_DATUM);                                                //UNIT
-        tft.setFreeFont(FONT_UNIT);                                                //UNIT SIZE/FONT
-        tft.drawString(txt_unit, COLUMN2 + UNIT_LEFT_MARGIN, LINE_4Y_UNIT, GFXFF); //DRAW UNIT ON DISPLAY
-
-        // Switch font back
-        tft.setFreeFont(FONT_NUMBER); //SET FONT FOR DATA
-      }
-
-      tft_util_draw_number(&tft, fmt, COLUMN2, LINE_4Y, MY_TFT_WHITE, TFT_BLACK, 5, SMALLEST_FONT_SIZE); //DRAW DATA
       break;
     }
 
@@ -901,7 +929,7 @@ void tftUpdateData(uint32_t i_loop)
       }
 
       i = i + (SPACE_INDICATORS_Y * SCALE_FACTOR_Y);
-      uint8_t currentTemperatureStatus = (shrd.currentTemperature > settings.get_Temperature_warning());
+      uint8_t currentTemperatureStatus = (shrd.currentTemperature > settings.get_Temperature_warning()) || (shrd.currentMotorTemperature > settings.get_Temperature_warning());
       if (oldShrdCurrentTemperature != currentTemperatureStatus)
       {
         tft.setTextColor(currentTemperatureStatus ? TFT_RED : MY_TFT_DARK_DIGIT_DISABLED, TFT_BLACK);

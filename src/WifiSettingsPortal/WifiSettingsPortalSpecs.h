@@ -49,11 +49,13 @@ ACSelect(ACS4_9, {"Normal","Inverted"}, "Rotate screen", 0);
 ACText(ACS5, "<h2>Electric brake</h2>", "");
 ACCheckbox(ACS5_1, "ACS5_1", "Progressive mode", false, AC_Infront);
 ACSelect(ACS5_2, {"Controller","Smart - Digital brake lever","Smart - Analog brake lever","Smart - Digital brake + throttle (exp)"}, "Type", 0);
-ACInput(ACS5_3, "1", "Min value", "", "", AC_Tag_BR, AC_Input_Text);
-ACInput(ACS5_4, "5", "Max value", "", "", AC_Tag_BR, AC_Input_Text);
-ACInput(ACS5_5, "500", "Time between mode shift", "", "", AC_Tag_BR, AC_Input_Text);
-ACCheckbox(ACS5_6, "ACS5_6", "Disabled with bat, HV", false, AC_Infront);
-ACInput(ACS5_7, "100", "Disabled with bat. HV", "", "", AC_Tag_BR, AC_Input_Text);
+ACInput(ACS5_3, "650", "Input min voltage", "", "", AC_Tag_BR, AC_Input_Text);
+ACInput(ACS5_4, "3950", "Input max voltage", "", "", AC_Tag_BR, AC_Input_Text);
+ACInput(ACS5_5, "1", "Min value", "", "", AC_Tag_BR, AC_Input_Text);
+ACInput(ACS5_6, "5", "Max value", "", "", AC_Tag_BR, AC_Input_Text);
+ACInput(ACS5_7, "500", "Time between mode shift", "", "", AC_Tag_BR, AC_Input_Text);
+ACCheckbox(ACS5_8, "ACS5_8", "Disabled with bat, HV", false, AC_Infront);
+ACInput(ACS5_9, "100", "Disabled with bat. HV", "", "", AC_Tag_BR, AC_Input_Text);
 ACText(ACS6, "<h2>Throttle</h2>", "");
 ACCheckbox(ACS6_1, "ACS6_1", "Throttle regeneration", false, AC_Infront);
 ACInput(ACS6_2, "650", "Input min voltage", "", "", AC_Tag_BR, AC_Input_Text);
@@ -122,6 +124,8 @@ AutoConnectAux settingsPageAux("/settingspage", "SmartElec settings", true, {
     ACS5_5,
     ACS5_6,
     ACS5_7,
+    ACS5_8,
+    ACS5_9,
         
     ACS6,
     ACS6_1,
@@ -178,11 +182,13 @@ void saveConfig(AutoConnectAux &aux)
     WifiSettingsPortal_settings->set_Rotate_screen((settingsPageAux["ACS4_9"].as<AutoConnectSelect>()).selected - 1);
     WifiSettingsPortal_settings->set_Ebrake_progressive_mode((settingsPageAux["ACS5_1"].as<AutoConnectCheckbox>()).checked ? 1 : 0);
     WifiSettingsPortal_settings->set_Ebrake_smart_brake_type((settingsPageAux["ACS5_2"].as<AutoConnectSelect>()).selected - 1);
-    WifiSettingsPortal_settings->set_Ebrake_min_power_value((settingsPageAux["ACS5_3"].as<AutoConnectInput>()).value.toInt());
-    WifiSettingsPortal_settings->set_Ebrake_max_power_value((settingsPageAux["ACS5_4"].as<AutoConnectInput>()).value.toInt());
-    WifiSettingsPortal_settings->set_Ebrake_time_between_mode_shift((settingsPageAux["ACS5_5"].as<AutoConnectInput>()).value.toInt());
-    WifiSettingsPortal_settings->set_Ebrake_disabled_on_high_battery_voltage((settingsPageAux["ACS5_6"].as<AutoConnectCheckbox>()).checked ? 1 : 0);
-    WifiSettingsPortal_settings->set_Ebrake_disabled_percent_limit((settingsPageAux["ACS5_7"].as<AutoConnectInput>()).value.toInt());
+    WifiSettingsPortal_settings->set_Ebrake_input_min_voltage((settingsPageAux["ACS5_3"].as<AutoConnectInput>()).value.toInt());
+    WifiSettingsPortal_settings->set_Ebrake_input_max_voltage((settingsPageAux["ACS5_4"].as<AutoConnectInput>()).value.toInt());
+    WifiSettingsPortal_settings->set_Ebrake_min_power_value((settingsPageAux["ACS5_5"].as<AutoConnectInput>()).value.toInt());
+    WifiSettingsPortal_settings->set_Ebrake_max_power_value((settingsPageAux["ACS5_6"].as<AutoConnectInput>()).value.toInt());
+    WifiSettingsPortal_settings->set_Ebrake_time_between_mode_shift((settingsPageAux["ACS5_7"].as<AutoConnectInput>()).value.toInt());
+    WifiSettingsPortal_settings->set_Ebrake_disabled_on_high_battery_voltage((settingsPageAux["ACS5_8"].as<AutoConnectCheckbox>()).checked ? 1 : 0);
+    WifiSettingsPortal_settings->set_Ebrake_disabled_percent_limit((settingsPageAux["ACS5_9"].as<AutoConnectInput>()).value.toInt());
     WifiSettingsPortal_settings->set_Throttle_regeneration((settingsPageAux["ACS6_1"].as<AutoConnectCheckbox>()).checked ? 1 : 0);
     WifiSettingsPortal_settings->set_Throttle_input_min_voltage((settingsPageAux["ACS6_2"].as<AutoConnectInput>()).value.toInt());
     WifiSettingsPortal_settings->set_Throttle_input_max_voltage((settingsPageAux["ACS6_3"].as<AutoConnectInput>()).value.toInt());
@@ -312,11 +318,13 @@ void loadConfig(AutoConnectAux &aux)
         aux.setElementValue("ACS5_2", "Smart - Analog brake lever");
     if (val_Ebrake_smart_brake_type == 3)
         aux.setElementValue("ACS5_2", "Smart - Digital brake + throttle (exp)");
-    aux.setElementValue("ACS5_3", (String)WifiSettingsPortal_settings->get_Ebrake_min_power_value());
-    aux.setElementValue("ACS5_4", (String)WifiSettingsPortal_settings->get_Ebrake_max_power_value());
-    aux.setElementValue("ACS5_5", (String)WifiSettingsPortal_settings->get_Ebrake_time_between_mode_shift());
-    aux.setElementValue("ACS5_6", WifiSettingsPortal_settings->get_Ebrake_disabled_on_high_battery_voltage() ? "checked" : "");
-    aux.setElementValue("ACS5_7", (String)WifiSettingsPortal_settings->get_Ebrake_disabled_percent_limit());
+    aux.setElementValue("ACS5_3", (String)WifiSettingsPortal_settings->get_Ebrake_input_min_voltage());
+    aux.setElementValue("ACS5_4", (String)WifiSettingsPortal_settings->get_Ebrake_input_max_voltage());
+    aux.setElementValue("ACS5_5", (String)WifiSettingsPortal_settings->get_Ebrake_min_power_value());
+    aux.setElementValue("ACS5_6", (String)WifiSettingsPortal_settings->get_Ebrake_max_power_value());
+    aux.setElementValue("ACS5_7", (String)WifiSettingsPortal_settings->get_Ebrake_time_between_mode_shift());
+    aux.setElementValue("ACS5_8", WifiSettingsPortal_settings->get_Ebrake_disabled_on_high_battery_voltage() ? "checked" : "");
+    aux.setElementValue("ACS5_9", (String)WifiSettingsPortal_settings->get_Ebrake_disabled_percent_limit());
     aux.setElementValue("ACS6_1", WifiSettingsPortal_settings->get_Throttle_regeneration() ? "checked" : "");
     aux.setElementValue("ACS6_2", (String)WifiSettingsPortal_settings->get_Throttle_input_min_voltage());
     aux.setElementValue("ACS6_3", (String)WifiSettingsPortal_settings->get_Throttle_input_max_voltage());

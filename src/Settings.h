@@ -468,6 +468,32 @@ public:
             
     /*-------------------------------------------------------*/
 
+    #define SETTINGS_EBRAKE_INPUT_MIN_VOLTAGE_BLE_ID 62
+    #define SETTINGS_EBRAKE_INPUT_MIN_VOLTAGE_STORAGE_KEY "3h61rvWl7LuQww"
+    #define SETTINGS_EBRAKE_INPUT_MIN_VOLTAGE_NAME "Ebrake_input_min_voltage"
+
+    uint32_t Ebrake_input_min_voltage;
+
+    void set_Ebrake_input_min_voltage (uint32_t value);
+    uint32_t get_Ebrake_input_min_voltage();
+    void display_Ebrake_input_min_voltage();
+    void save_Ebrake_input_min_voltage(uint32_t value);
+            
+    /*-------------------------------------------------------*/
+
+    #define SETTINGS_EBRAKE_INPUT_MAX_VOLTAGE_BLE_ID 63
+    #define SETTINGS_EBRAKE_INPUT_MAX_VOLTAGE_STORAGE_KEY "d5NYGMcE7TbMmA"
+    #define SETTINGS_EBRAKE_INPUT_MAX_VOLTAGE_NAME "Ebrake_input_max_voltage"
+
+    uint32_t Ebrake_input_max_voltage;
+
+    void set_Ebrake_input_max_voltage (uint32_t value);
+    uint32_t get_Ebrake_input_max_voltage();
+    void display_Ebrake_input_max_voltage();
+    void save_Ebrake_input_max_voltage(uint32_t value);
+            
+    /*-------------------------------------------------------*/
+
     #define SETTINGS_EBRAKE_MIN_POWER_VALUE_BLE_ID 27
     #define SETTINGS_EBRAKE_MIN_POWER_VALUE_STORAGE_KEY "oPjAXerdrPc6rA"
     #define SETTINGS_EBRAKE_MIN_POWER_VALUE_NAME "Ebrake_min_power_value"

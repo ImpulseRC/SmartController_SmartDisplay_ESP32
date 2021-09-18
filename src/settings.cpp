@@ -81,6 +81,10 @@ void Settings::restore() {
     Serial.println("  >> Ebrake_progressive_mode = " + (String)Ebrake_progressive_mode);
     Ebrake_smart_brake_type = prefs.getInt(SETTINGS_EBRAKE_SMART_BRAKE_TYPE_STORAGE_KEY, 0);
     Serial.println("  >> Ebrake_smart_brake_type = " + (String)Ebrake_smart_brake_type);
+    Ebrake_input_min_voltage = prefs.getInt(SETTINGS_EBRAKE_INPUT_MIN_VOLTAGE_STORAGE_KEY, 650);
+    Serial.println("  >> Ebrake_input_min_voltage = " + (String)Ebrake_input_min_voltage);
+    Ebrake_input_max_voltage = prefs.getInt(SETTINGS_EBRAKE_INPUT_MAX_VOLTAGE_STORAGE_KEY, 3950);
+    Serial.println("  >> Ebrake_input_max_voltage = " + (String)Ebrake_input_max_voltage);
     Ebrake_min_power_value = prefs.getInt(SETTINGS_EBRAKE_MIN_POWER_VALUE_STORAGE_KEY, 1);
     Serial.println("  >> Ebrake_min_power_value = " + (String)Ebrake_min_power_value);
     Ebrake_max_power_value = prefs.getInt(SETTINGS_EBRAKE_MAX_POWER_VALUE_STORAGE_KEY, 5);
@@ -153,6 +157,8 @@ void Settings::save() {
     prefs.putInt(SETTINGS_ROTATE_SCREEN_STORAGE_KEY, Rotate_screen);
     prefs.putInt(SETTINGS_EBRAKE_PROGRESSIVE_MODE_STORAGE_KEY, Ebrake_progressive_mode);
     prefs.putInt(SETTINGS_EBRAKE_SMART_BRAKE_TYPE_STORAGE_KEY, Ebrake_smart_brake_type);
+    prefs.putInt(SETTINGS_EBRAKE_INPUT_MIN_VOLTAGE_STORAGE_KEY, Ebrake_input_min_voltage);
+    prefs.putInt(SETTINGS_EBRAKE_INPUT_MAX_VOLTAGE_STORAGE_KEY, Ebrake_input_max_voltage);
     prefs.putInt(SETTINGS_EBRAKE_MIN_POWER_VALUE_STORAGE_KEY, Ebrake_min_power_value);
     prefs.putInt(SETTINGS_EBRAKE_MAX_POWER_VALUE_STORAGE_KEY, Ebrake_max_power_value);
     prefs.putInt(SETTINGS_EBRAKE_TIME_BETWEEN_MODE_SHIFT_STORAGE_KEY, Ebrake_time_between_mode_shift);
@@ -343,6 +349,16 @@ void Settings::unpack_setting_packet(uint8_t* packet, uint8_t length) {
     case SETTINGS_EBRAKE_SMART_BRAKE_TYPE_BLE_ID :
         set_Ebrake_smart_brake_type(buffer_get_uint8(packet, &ind));
         //Serial.print("unpack_setting_packet - Ebrake_smart_brake_type : " + (String) Ebrake_smart_brake_type + " / ");
+        //buffer_display("", packet, length);
+        break;
+    case SETTINGS_EBRAKE_INPUT_MIN_VOLTAGE_BLE_ID :
+        set_Ebrake_input_min_voltage(buffer_get_uint32(packet, &ind));
+        //Serial.print("unpack_setting_packet - Ebrake_input_min_voltage : " + (String) Ebrake_input_min_voltage + " / ");
+        //buffer_display("", packet, length);
+        break;
+    case SETTINGS_EBRAKE_INPUT_MAX_VOLTAGE_BLE_ID :
+        set_Ebrake_input_max_voltage(buffer_get_uint32(packet, &ind));
+        //Serial.print("unpack_setting_packet - Ebrake_input_max_voltage : " + (String) Ebrake_input_max_voltage + " / ");
         //buffer_display("", packet, length);
         break;
     case SETTINGS_EBRAKE_MIN_POWER_VALUE_BLE_ID :
@@ -644,6 +660,16 @@ bool Settings::pack_setting_packet(uint16_t settingId, uint16_t packetNumber, ui
     case SETTINGS_EBRAKE_SMART_BRAKE_TYPE_BLE_ID :
         buffer_append_uint8(packet, Ebrake_smart_brake_type, ind);
         //Serial.print("pack_setting_packet - Ebrake_smart_brake_type : " + (String) Ebrake_smart_brake_type + " / ");
+        //buffer_display("", packet, *ind);
+        break;
+    case SETTINGS_EBRAKE_INPUT_MIN_VOLTAGE_BLE_ID :
+        buffer_append_uint32(packet, Ebrake_input_min_voltage, ind);
+        //Serial.print("pack_setting_packet - Ebrake_input_min_voltage : " + (String) Ebrake_input_min_voltage + " / ");
+        //buffer_display("", packet, *ind);
+        break;
+    case SETTINGS_EBRAKE_INPUT_MAX_VOLTAGE_BLE_ID :
+        buffer_append_uint32(packet, Ebrake_input_max_voltage, ind);
+        //Serial.print("pack_setting_packet - Ebrake_input_max_voltage : " + (String) Ebrake_input_max_voltage + " / ");
         //buffer_display("", packet, *ind);
         break;
     case SETTINGS_EBRAKE_MIN_POWER_VALUE_BLE_ID :
@@ -1392,6 +1418,48 @@ void Settings::display_Ebrake_smart_brake_type() {
 void Settings::save_Ebrake_smart_brake_type(uint8_t value) {
     prefs.begin(SETTINGS_STORAGE, false);
     prefs.putInt(SETTINGS_EBRAKE_SMART_BRAKE_TYPE_STORAGE_KEY, Ebrake_smart_brake_type);
+    prefs.end();
+}
+                
+
+/*-------------------------------------------------------*/
+
+void Settings::set_Ebrake_input_min_voltage(uint32_t value) {
+    Ebrake_input_min_voltage = value;
+}
+
+uint32_t Settings::get_Ebrake_input_min_voltage() {
+    return Ebrake_input_min_voltage ;
+}
+
+void Settings::display_Ebrake_input_min_voltage() {
+    Serial.println("  Ebrake_input_min_voltage = " + (String) Ebrake_input_min_voltage);
+}
+
+void Settings::save_Ebrake_input_min_voltage(uint32_t value) {
+    prefs.begin(SETTINGS_STORAGE, false);
+    prefs.putInt(SETTINGS_EBRAKE_INPUT_MIN_VOLTAGE_STORAGE_KEY, Ebrake_input_min_voltage);
+    prefs.end();
+}
+                
+
+/*-------------------------------------------------------*/
+
+void Settings::set_Ebrake_input_max_voltage(uint32_t value) {
+    Ebrake_input_max_voltage = value;
+}
+
+uint32_t Settings::get_Ebrake_input_max_voltage() {
+    return Ebrake_input_max_voltage ;
+}
+
+void Settings::display_Ebrake_input_max_voltage() {
+    Serial.println("  Ebrake_input_max_voltage = " + (String) Ebrake_input_max_voltage);
+}
+
+void Settings::save_Ebrake_input_max_voltage(uint32_t value) {
+    prefs.begin(SETTINGS_STORAGE, false);
+    prefs.putInt(SETTINGS_EBRAKE_INPUT_MAX_VOLTAGE_STORAGE_KEY, Ebrake_input_max_voltage);
     prefs.end();
 }
                 

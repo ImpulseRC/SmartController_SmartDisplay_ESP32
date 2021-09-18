@@ -40,6 +40,7 @@ public:
     static void notifySettingsChanged();
     static uint8_t setMeasurementsDataPacket();
     static uint8_t setCommandsDataPacket();
+    static uint8_t setAdcDacDataPacket(NimBLECharacteristic *pCharacteristic);
     static void getCommandsDataPacket(uint8_t *);
     static void sendSettingValueDataPacket(uint8_t *);
     static void switchToOta(uint8_t *);
@@ -55,6 +56,7 @@ public:
     static BLECharacteristic *pCharacteristicLogs;
     static BLECharacteristic *pCharacteristicDistanceRst;
     static BLECharacteristic *pCharacteristicCommands;
+    static BLECharacteristic *pCharacteristicAdcDac;
 
     static BLECharacteristic *pCharacteristicSettingsGen;
     static BLECharacteristic *pCharacteristicSettingsAction;
