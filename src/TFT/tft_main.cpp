@@ -918,7 +918,8 @@ void tftUpdateData(uint32_t i_loop)
                       shrd.errorBrake ||
                       shrd.errorSerialFromDisplay ||
                       shrd.errorSerialFromContrl ||
-                      shrd.errorContrl;
+                      shrd.errorContrl ||
+                      shrd.errorI2cDAC;
 
       i = i + (SPACE_INDICATORS_Y * SCALE_FACTOR_Y);
       if (oldError != error)

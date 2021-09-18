@@ -167,6 +167,11 @@ public:
       val += "SERD ";
       count++;
     }
+    if (TFT_menu_shrd->errorI2cDAC)
+    {
+      val += "DAC ";
+      count++;
+    }
     if (count == 0)
     {
       val += "none";

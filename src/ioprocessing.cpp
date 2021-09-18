@@ -75,7 +75,12 @@ void setupAutonomy()
 void setupI2C()
 {
 
-  I2Cone.begin(PIN_I2C_SDA, PIN_I2C_SCL, I2C_FREQ);
+  bool ret = I2Cone.begin(PIN_I2C_SDA, PIN_I2C_SCL, I2C_FREQ);
+  if (ret != 1)
+  {
+    Serial.println("I2C error");
+    shrd.errorI2cDAC = true;
+  }
 }
 
 void setupDac()
@@ -93,7 +98,7 @@ void setupShtc3()
   SHTC3_Status_TypeDef err = mySHTC3.begin(I2Cone);
   if (err != SHTC3_Status_Nominal)
   {
-    Serial.print("SHTC3 error");
+    Serial.println("SHTC3 error");
     shrd.shtc3_present = false;
   }
   else

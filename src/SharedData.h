@@ -135,6 +135,7 @@ public:
     boolean errorSerialFromDisplay = false;
     boolean errorSerialFromContrl = false;
     boolean errorContrl = false;
+    boolean errorI2cDAC = false;
 
     int8_t bleBeaconVisible1 = 1;
     int16_t beaconRSSI1 = -1;

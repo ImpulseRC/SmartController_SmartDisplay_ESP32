@@ -1069,7 +1069,7 @@ void BluetoothHandler::notifyBleLockAndErrors()
         value[3] = shrd->bleBeaconVisible2;
         value[4] = shrd->beaconRSSI2;
         value[5] = shrd->bleLockForced;
-        value[6] = shrd->errorBrake | (shrd->errorContrl << 1) | (shrd->errorSerialFromContrl << 2) | (shrd->errorSerialFromDisplay << 3) | (shrd->errorThrottle << 4);
+        value[6] = shrd->errorBrake | (shrd->errorContrl << 1) | (shrd->errorSerialFromContrl << 2) | (shrd->errorSerialFromDisplay << 3) | (shrd->errorThrottle << 4) | (shrd->errorI2cDAC << 5);
         pCharacteristicBtlockStatus->setValue((uint8_t *)&value, 7);
         pCharacteristicBtlockStatus->notify();
 
