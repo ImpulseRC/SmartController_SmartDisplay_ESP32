@@ -4,7 +4,9 @@
 #include "debug.h"
 #include "tools/utils.h"
 
-#ifndef MINIMO_SIMULATED_DISPLAY
+#ifndef BUILD_DISPLAY_EYE
+#define MINIMO_SIMULATED_DISPLAY 1
+#else
 #define MINIMO_SIMULATED_DISPLAY 0
 #endif
 
