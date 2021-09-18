@@ -168,11 +168,13 @@ void setupSerial()
   hwSerLcd.setUartIrqIdleTrigger(0);
 #endif
 
-#if BUILD_CONTROLLER_ZERO
+#if BUILD_CONTROLLER_ZERO || BUILD_DISPLAY_QSS4
   zeroCntrl.setSettings(&settings);
   zeroCntrl.setSharedData(&shrd);
   zeroCntrl.setBluetoothHandler(&blh);
+#endif
 
+#if BUILD_CONTROLLER_ZERO
   // zero controller
   hwSerCntrl.begin(ZERO_BAUD_RATE, SERIAL_8N1, PIN_SERIAL_CNTRL_TO_ESP, PIN_SERIAL_ESP_TO_CNTRL);
   zeroCntrl.setControllerSerialPort(&hwSerCntrl);
@@ -194,8 +196,6 @@ void setupSerial()
 #if DEBUG_DISPLAY_VESC_FRAME
   vescCntrl.setDebugPort(&Serial);
 #endif
-  //vescCntrl.requestMotorConfig();
-  //vescCntrl.setDebugPort(NULL);
 #endif
 
 #if BUILD_CONTROLLER_KELLY
@@ -205,16 +205,6 @@ void setupSerial()
   hwSerCntrl.setUartIrqIdleTrigger(1);
 #endif
 
-  /*
-#if BUILD_CONTROLLER_SMART
-  hwSerCntrl.begin(BAUD_RATE_SMARTESC, SERIAL_8N1, PIN_SERIAL_CNTRL_TO_ESP, PIN_SERIAL_ESP_TO_CNTRL);
-  smartEscCntrl.setSerialPort(&hwSerCntrl);
-  //smartEscCntrl.setDebugPort(&Serial);
-  smartEscCntrl.setSettings(&settings);
-  smartEscCntrl.setSharedData(&shrd);
-  hwSerCntrl.setUartIrqIdleTrigger(1);
-#endif
-*/
 }
 
 void saveBleLockForced()
