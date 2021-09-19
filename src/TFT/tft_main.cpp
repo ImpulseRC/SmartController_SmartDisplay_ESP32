@@ -515,7 +515,7 @@ void tftUpdateData(uint32_t i_loop)
     tft.drawString(txt_auton, COLUMN3, LINE_2Y - LINE_TEXT_OFFSET, GFXFF);
     tft.drawString(txt_time, COLUMN6, LINE_4Y - LINE_TEXT_OFFSET, GFXFF);
     tft.drawString(txt_trip, COLUMN9, LINE_4Y - LINE_TEXT_OFFSET, GFXFF);
-    if (shrd.vesc_present || shrd.owb_ds9990_present || shrd.shtc3_present || shrd.currentSensorPresent > 0)
+    if (shrd.owb_ds9990_present || shrd.shtc3_present || shrd.currentSensorPresent > 0)
       tft.drawString(txt_power, COLUMN2, LINE_4Y - LINE_TEXT_OFFSET, GFXFF);
 
     // draw interface - units
@@ -528,7 +528,7 @@ void tftUpdateData(uint32_t i_loop)
     tft.drawString(txt_v, COLUMN4 + UNIT_LEFT_MARGIN, LINE_2Y_UNIT, GFXFF);
 
     // power "watts"
-    if (shrd.vesc_present || shrd.owb_ds9990_present || shrd.shtc3_present || shrd.currentSensorPresent > 0)
+    if (shrd.owb_ds9990_present || shrd.shtc3_present || shrd.currentSensorPresent > 0)
       tft.drawString(txt_w, COLUMN2 + UNIT_LEFT_MARGIN, LINE_4Y_UNIT, GFXFF);
 
     // trip "km/h"
@@ -695,7 +695,7 @@ void tftUpdateData(uint32_t i_loop)
       String txt_unit;
       bool shouldClear = false;
 
-      if (shrd.vesc_present || shrd.owb_ds9990_present || shrd.shtc3_present || shrd.currentSensorPresent > 0)
+      if (shrd.owb_ds9990_present || shrd.shtc3_present || shrd.currentSensorPresent > 0)
       {
         if ((shrd.currentSensorPresent > 0) && (!(shrd.speedCurrent == 0 && shrd.brakePressedStatus == 1)))
         {
@@ -718,10 +718,7 @@ void tftUpdateData(uint32_t i_loop)
           // CASE TEMP (Without current sensor, by default)
           txt_label = "       " + (String)txt_temp;
           txt_unit = "C ";
-          if (shrd.currentMotorTemperature > -45)
-            sprintf(fmt, "%02.0f %02.0f", shrd.currentTemperature, shrd.currentMotorTemperature);
-          else
-            sprintf(fmt, "%02.0f", shrd.currentTemperature);
+          sprintf(fmt, "%02.0f", shrd.currentTemperature);
 
           // check substate change
           if (old_substate_case3 == 0)
@@ -929,7 +926,7 @@ void tftUpdateData(uint32_t i_loop)
       }
 
       i = i + (SPACE_INDICATORS_Y * SCALE_FACTOR_Y);
-      uint8_t currentTemperatureStatus = (shrd.currentTemperature > settings.get_Temperature_warning()) || (shrd.currentMotorTemperature > settings.get_Temperature_warning());
+      uint8_t currentTemperatureStatus = (shrd.currentTemperature > settings.get_Temperature_warning());
       if (oldShrdCurrentTemperature != currentTemperatureStatus)
       {
         tft.setTextColor(currentTemperatureStatus ? TFT_RED : MY_TFT_DARK_DIGIT_DISABLED, TFT_BLACK);

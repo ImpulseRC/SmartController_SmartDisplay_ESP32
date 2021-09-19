@@ -400,16 +400,19 @@ void getThrottleFromAnalog()
   // ignore out of range datas ... and notify
   if (throttleInMillv < tInMin * TMIN_MARGIN)
   {
-    char print_buffer[500];
-    sprintf(print_buffer, "throttle : value too low / tAnalogValue : %d / throttleFilter.getMean() : %d / tInMin : %d / tInMin with margin : %d",
-            throttleAnalogValue,
-            throttleFilter.getMean(),
-            tInMin,
-            (uint32_t)(tInMin * TMIN_MARGIN));
-    blh.notifyBleLogs(print_buffer);
-    /*
+    if (i_loop % 500 > 490)
+    {
+      char print_buffer[500];
+      sprintf(print_buffer, "throttle : value too low / tAnalogValue : %d / throttleFilter.getMean() : %d / tInMin : %d / tInMin with margin : %d",
+              throttleAnalogValue,
+              throttleFilter.getMean(),
+              tInMin,
+              (uint32_t)(tInMin * TMIN_MARGIN));
+      blh.notifyBleLogs(print_buffer);
+      /*
     Serial.println(print_buffer);
 */
+    }
     shrd.errorThrottle = true;
 
     return;
@@ -418,17 +421,19 @@ void getThrottleFromAnalog()
   // ignore out of range datas ... and notify
   if (throttleInMillv > tInMax * TMAX_MARGIN)
   {
-    char print_buffer[500];
-    sprintf(print_buffer, "throttle : value too high / tAnalogValue : %d / throttleFilter.getMean() : %d / tInMax : %d / tInMax with margin : %d",
-            throttleAnalogValue,
-            throttleFilter.getMean(),
-            tInMax,
-            (uint32_t)(tInMax * TMAX_MARGIN));
-    blh.notifyBleLogs(print_buffer);
-    /*
+    if (i_loop % 500 > 490)
+    {
+      char print_buffer[500];
+      sprintf(print_buffer, "throttle : value too high / tAnalogValue : %d / throttleFilter.getMean() : %d / tInMax : %d / tInMax with margin : %d",
+              throttleAnalogValue,
+              throttleFilter.getMean(),
+              tInMax,
+              (uint32_t)(tInMax * TMAX_MARGIN));
+      blh.notifyBleLogs(print_buffer);
+      /*
     Serial.println(print_buffer);
 */
-
+    }
     shrd.errorThrottle = true;
 
     return;
