@@ -20,6 +20,7 @@ import com.hotmail.or_dvir.easysettings.pojos.CheckBoxSettingsObject;
 import com.hotmail.or_dvir.easysettings.pojos.EasySettings;
 import com.hotmail.or_dvir.easysettings.pojos.HeaderSettingsObject;
 import com.hotmail.or_dvir.easysettings.pojos.SeekBarSettingsObject;
+import com.hotmail.or_dvir.easysettings.pojos.DividerSettingsObject;
 import com.hotmail.or_dvir.easysettings.pojos.SettingsObject;
 import com.hotmail.or_dvir.easysettings_dialogs.pojos.EditTextSettingsObject;
 import com.hotmail.or_dvir.easysettings_dialogs.pojos.ListSettingsObject;
@@ -285,18 +286,17 @@ public class SmartElecSettings {
 {%- for key, value in parameters.items() %}
     {%- for key2, value2 in value.items() %}
 
-        boolean hasOneTimeValid_{{key2  | replace(" ", "_") | title }} = (firmware_type != null) && (
+        int nbValidItem_{{key2  | replace(" ", "_") | title }} = 0;
         {%- for  item in value2.settings %}
-                (("{{ item.valid_config }}" == "") || (firmware_type.matches("{{ item.valid_config }}"))) |
+        if (("{{ item.valid_config }}" == "") || (firmware_type.matches("{{ item.valid_config }}"))) nbValidItem_{{key2  | replace(" ", "_") | title }}++;
         {%- endfor %}
-            false) ;
-
+    
         {% set outer_loop = loop %}
 // ----------------------
 
-        if (hasOneTimeValid_{{key2  | replace(" ", "_") | title }}) {
+        if (nbValidItem_{{key2  | replace(" ", "_") | title }} > 0) {
 
-        settings.add(new HeaderSettingsObject.Builder({{ key2 | replace(" ", "_") | title }})
+            settings.add(new HeaderSettingsObject.Builder({{ key2 | replace(" ", "_") | title }})
                         .build());
 
         {%- for  item in value2.settings %}
@@ -370,15 +370,20 @@ public class SmartElecSettings {
                     .setOffText("off")
                     .setOnText("on")
             {%- endif %}
-            {%- if outer_loop.last == False and loop.last == True %}
-                    .addDivider()
-            {%- endif %}
                     .build());
 
             {%- if item.valid_config != "" %}
+
         }
+
             {%- endif %}
+            
         {%- endfor %}
+
+        {% if loop.last == False %}
+            settings.add(new DividerSettingsObject.Builder().build());
+        {%- endif %}
+        
         }
 
     {%- endfor %}
