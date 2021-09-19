@@ -75,6 +75,7 @@ public:
     uint8_t modifyPower(char var, char data_buffer[]);
     uint8_t modifyBrakeFromDisplay(char var, char data_buffer[]);
     uint8_t modifyBrakeFromAnalog(char var, char data_buffer[]);
+    uint8_t modifyBrakeFromSharedData(char var, char data_buffer[]);
     uint8_t modifyEco(char var, char data_buffer[]);
     uint8_t modifyPas(char var, char data_buffer[]);
 
@@ -83,7 +84,7 @@ public:
     bool getContrlStatusOk();
     bool isContrlInError(char var, char data_buffer[]);
 
-    void readHardSerial(int mode, int *i, Stream *hwSerCntrl, Stream *hwSerLcd, int serialMode, char *data_buffer_ori, char *data_buffer_mod);
+    void readHardSerial(int serialMode, int *i, Stream *hwSerCntrl, Stream *hwSerLcd, char *data_buffer_ori, char *data_buffer_mod);
     void processSerial(uint32_t i_loop, boolean simulatedDisplay);
 
 private:

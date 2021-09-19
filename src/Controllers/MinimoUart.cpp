@@ -10,8 +10,19 @@
 #define MINIMO_SIMULATED_DISPLAY 0
 #endif
 
+#ifndef BUILD_CONTROLLER_MINIMOTORS
+#define MINIMO_SIMULATED_CNTRL 1
+#else
+#define MINIMO_SIMULATED_CNTRL 0
+#endif
+
 char simulatedFrameFromLcd[] = {0xaa, 0x4, 0x45, 0x0, 0x0, 0x6e, 0x0, 0x64, 0x0, 0x80, 0x2, 0x2, 0x0, 0x0, 0x61};
+char simulatedFrameFromContrl[] = {0x36, 0xc5, 0x0, 0x6f, 0x6f, 0x6f, 0x0, 0x73, 0x8f, 0x6f, 0x7b, 0xe4, 0xa0, 0x6f, 0x5f};
+
 uint8_t iMsgLcdToCntrl = 0;
+uint8_t iMsgCntrlToLcd = 0;
+
+uint32_t _i_loop = 0;
 
 MinimoUart::MinimoUart()
 {
@@ -70,8 +81,8 @@ void MinimoUart::displayFrame(int mode, char data_buffer[], byte checksum)
   char print_buffer[500];
 
   // for excel
-  sprintf(print_buffer, "(%d) %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x / %02x",
-          mode,
+  sprintf(print_buffer, "(%s) %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x / %02x",
+          (mode == 0) ? "LCD" : "CTL",
           data_buffer[0],
           data_buffer[1],
           data_buffer[2],
@@ -99,8 +110,8 @@ void MinimoUart::displayDecodedFrame(int mode, char data_buffer[], byte checksum
   char print_buffer[500];
 
   // for excel
-  sprintf(print_buffer, "(%d) %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x  %02x /  %2d /  %2d",
-          mode,
+  sprintf(print_buffer, "(%s) %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x %02x  %02x /  %2d /  %2d",
+          (mode == 0) ? "LCD" : "CTL",
           data_buffer[0],
           data_buffer[1],
           data_buffer[2],
@@ -356,11 +367,8 @@ uint8_t MinimoUart::modifyPas(char var, char data_buffer[])
 
 bool MinimoUart::isContrlInError(char var, char data_buffer[])
 {
-
-  uint8_t byte4 = (data_buffer[4] - data_buffer[3]);
-  uint8_t byte5 = (data_buffer[5] - data_buffer[3]);
-
-  return !((byte4 == 0xf8) && (byte5 == 0xf8));
+  return ((data_buffer[4] == 0xf8) && (data_buffer[5] == 0xf8) && (data_buffer[6] == 0xf8) && (data_buffer[7] == 0xf8) && (data_buffer[8] == 0xf8) && (data_buffer[9] == 0xf8));
+  //return false;
 }
 
 uint8_t MinimoUart::getBrakeFromCntrlFrame(char var, char data_buffer[])
@@ -439,6 +447,17 @@ uint8_t MinimoUart::getBrakeFromCntrlFrame(char var, char data_buffer[])
 */
 
   return brake;
+}
+
+uint8_t MinimoUart::modifyBrakeFromSharedData(char var, char data_buffer[])
+{
+
+  if (shrd->brakePressedStatus)
+    var = var & 0xdf;
+  else
+    var = var | 0x20;
+
+  return var;
 }
 
 uint8_t MinimoUart::modifyBrakeFromDisplay(char var, char data_buffer[])
@@ -741,7 +760,7 @@ uint8_t MinimoUart::modifySpeed(char var, char data_buffer[], uint8_t byte)
 {
 
   // LCD Speed adjustement
-  if ((settings->get_Original_display_speed_adjustment() != 0) || (shrd->speedLimiter == 1))
+  if ((settings->get_Original_display_speed_adjustment() != 0) || (shrd->speedLimiter == 1) || (MINIMO_SIMULATED_CNTRL == 1))
   {
     double speedToProcess = shrd->speedOldForCntrl * ((settings->get_Original_display_speed_adjustment() + 100) / 100.0);
 
@@ -790,6 +809,69 @@ uint8_t MinimoUart::modifySpeed(char var, char data_buffer[], uint8_t byte)
   return var;
 }
 
+uint8_t randomValue3(char var, char data_buffer[], bool complement)
+{
+
+  var = ((_i_loop % 76800) / 300);
+  if (complement)
+  {
+    Serial.println("send w comp : " + (String)((uint8_t)(var)&0xff) + " / " + (String)((uint8_t)(var + data_buffer[3]) & 0xff));
+    return (var + data_buffer[3]) & 0xff;
+  }
+  else
+  {
+    Serial.println("send : " + (String)((uint8_t)(var)&0xff));
+    return (var);
+  }
+}
+
+uint8_t randomValue4(char var, char data_buffer[], bool complement)
+{
+
+  if (_i_loop % 8000 > 7000)
+  {
+    var = 0b10000000;
+  }
+  else if (_i_loop % 8000 > 6000)
+  {
+    var = 0b01000000;
+  }
+  else if (_i_loop % 8000 > 5000)
+  {
+    var = 0b00100000;
+  }
+  else if (_i_loop % 8000 > 4000)
+  {
+    var = 0b00010000;
+  }
+  else if (_i_loop % 8000 > 3000)
+  {
+    var = 0b00001000;
+  }
+  else if (_i_loop % 8000 > 2000)
+  {
+    var = 0b00000100;
+  }
+  else if (_i_loop % 8000 > 1000)
+  {
+    var = 0b00000010;
+  }
+  else if (_i_loop % 8000 > 000)
+  {
+    var = 0b00000001;
+  }
+  if (complement)
+  {
+    Serial.println("send w comp : " + (String)((uint8_t)(var)&0xff) + " / " + (String)((uint8_t)(var + data_buffer[3]) & 0xff));
+    return (var + data_buffer[3]) & 0xff;
+  }
+  else
+  {
+    Serial.println("send : " + (String)((uint8_t)(var)&0xff));
+    return (var);
+  }
+}
+
 //////------------------------------------
 //////------------------------------------
 ////// Serial link functions
@@ -814,15 +896,15 @@ bool MinimoUart::getSerialStatusOkFromLcd()
 
 bool MinimoUart::getContrlStatusOk()
 {
-  return cntrlInError;
+  return !cntrlInError;
 }
 
-void MinimoUart::readHardSerial(int mode, int *i, Stream *hwSerCntrl, Stream *hwSerLcd, int serialMode, char *data_buffer_ori, char *data_buffer_mod)
+void MinimoUart::readHardSerial(int serialMode, int *i, Stream *hwSerCntrl, Stream *hwSerLcd, char *data_buffer_ori, char *data_buffer_mod)
 {
 
   byte var;
   Stream *ss_in, *ss_out;
-  if (mode == MODE_LCD_TO_CNTRL)
+  if (serialMode == MODE_LCD_TO_CNTRL)
   {
     ss_in = hwSerLcd;
     ss_out = hwSerCntrl;
@@ -833,29 +915,47 @@ void MinimoUart::readHardSerial(int mode, int *i, Stream *hwSerCntrl, Stream *hw
     ss_out = hwSerLcd;
   }
 
-  if (((MINIMO_SIMULATED_DISPLAY == 0) && (ss_in->available() > 0)) ||                                      // normal mode
-      ((MINIMO_SIMULATED_DISPLAY == 1) && (ss_in->available() > 0) && (serialMode == MODE_CNTRL_TO_LCD)) || // simulated display but read serial on controller
-      ((MINIMO_SIMULATED_DISPLAY == 1) && (serialMode == MODE_LCD_TO_CNTRL)))                               // simulated display and bypass serial data availability
+  //Serial.printf("ss_in = %d / ss_out = %d / serialMode = %d / MINIMO_SIMULATED_DISPLAY = %d / MINIMO_SIMULATED_CNTRL = %d\n", (int)ss_in, (int)ss_out, serialMode, MINIMO_SIMULATED_DISPLAY, MINIMO_SIMULATED_CNTRL);
+
+  if (
+      // normal mode
+      ((serialMode == MODE_CNTRL_TO_LCD) && (MINIMO_SIMULATED_DISPLAY == 0) && (ss_in != NULL) && (ss_in->available() > 0)) ||
+      // simulated display but read serial on controller
+      ((serialMode == MODE_CNTRL_TO_LCD) && (MINIMO_SIMULATED_DISPLAY == 1) && (ss_in != NULL) && (ss_in->available() > 0)) ||
+      // simulated display and bypass serial data availability
+      ((serialMode == MODE_LCD_TO_CNTRL) && (MINIMO_SIMULATED_DISPLAY == 1)) ||
+      //---
+      // normal mode
+      ((serialMode == MODE_LCD_TO_CNTRL) && (MINIMO_SIMULATED_CNTRL == 0) && (ss_in != NULL) && (ss_in->available() > 0)) ||
+      // simulated controller but read serial on lcd
+      ((serialMode == MODE_LCD_TO_CNTRL) && (MINIMO_SIMULATED_CNTRL == 1) && (ss_in != NULL) && (ss_in->available() > 0)) ||
+      // simulated controller and bypass serial data availability
+      ((serialMode == MODE_CNTRL_TO_LCD) && (MINIMO_SIMULATED_CNTRL == 1)))
   {
 
     // use real serial data or simulated data
     if (MINIMO_SIMULATED_DISPLAY == 1 && (serialMode == MODE_LCD_TO_CNTRL))
     {
       var = simulatedFrameFromLcd[*i];
+      //Serial.printf("serialMode = %d / simu LCD\n", serialMode);
+    }
+    else if (MINIMO_SIMULATED_CNTRL == 1 && (serialMode == MODE_CNTRL_TO_LCD))
+    {
+      var = simulatedFrameFromContrl[*i];
+      //Serial.printf("serialMode = %d / simu CNTRL\n", serialMode);
     }
     else
     {
       var = ss_in->read();
+      //Serial.printf("serialMode = %d / real\n", serialMode);
     }
 
     data_buffer_ori[*i] = var;
 
-    /*
-    if (serialMode == MODE_LCD_TO_CNTRL)
-    {
-      Serial.printf("var = %02x / *i = %d\n", var, *i);
-    }
-*/
+    // if (serialMode == MODE_LCD_TO_CNTRL)
+    // {
+    //   Serial.printf("var = %02x / *i = %d\n", var, *i);
+    // }
 
     // LCD -> CNTRL
     if (serialMode == MODE_LCD_TO_CNTRL)
@@ -953,30 +1053,25 @@ void MinimoUart::readHardSerial(int mode, int *i, Stream *hwSerCntrl, Stream *hw
         {
           getBrakeFromCntrlFrame(var, data_buffer_ori);
         }
-      }
-
-      if (*i == 5)
-      {
-        cntrlInError = isContrlInError(var, data_buffer_ori);
-      }
-
-      if (*i == 6)
-      {
-        //getError(var);
+        else if (MINIMO_SIMULATED_CNTRL == 1)
+        {
+          var = modifyBrakeFromSharedData(var, data_buffer_ori);
+        }
       }
 
       // modify speed
       if (*i == 7)
       {
         var = modifySpeed(var, data_buffer_mod, 0);
-
         isModified_CntrlToLcd = 1;
       }
 
       // modify speed
       if (*i == 8)
       {
+#if (MINIMO_SIMULATED_CNTRL == 0)
         shrd->speedCurrent = getSpeed();
+#endif
 
 #if MINIMO_ALLOW_CNTRL_TO_LCD_MODIFICATIONS
         var = modifySpeed(var, data_buffer_mod, 1);
@@ -990,14 +1085,56 @@ void MinimoUart::readHardSerial(int mode, int *i, Stream *hwSerCntrl, Stream *hw
         isModified_CntrlToLcd = 1;
       }
 
+      if (*i == 9)
+      {
+        cntrlInError = isContrlInError(var, data_buffer_ori);
+      }
+
       if (*i == 10)
       {
-#if MINIMO_ALLOW_CNTRL_TO_LCD_MODIFICATIONS
-//        var = data_buffer_cntrl_ori[3];
-//        isModified_CntrlToLcd = true;
-#endif
-        shrd->currentFromController = var * 20;
+        //        var = data_buffer_cntrl_ori[3];
+        //        isModified_CntrlToLcd = true;
+        //        shrd->currentFromController = var * 20;
       }
+
+      // create throttle error
+      /*
+      if ((*i == 4) || (*i == 5) || (*i == 7) || (*i == 8) || (*i == 9) || (*i == 10) || (*i == 13))
+      {
+        var = (0xf8 + data_buffer_cntrl_ori[3]) & 0xff;
+        var = (0xe0 + data_buffer_cntrl_ori[3]) & 0xff;
+        isModified_CntrlToLcd = 1;
+      }
+      if ((*i == 11))
+      {
+        var = (0x6d + data_buffer_cntrl_ori[3]) & 0xff;
+        var = (0x55 + data_buffer_cntrl_ori[3]) & 0xff;
+        isModified_CntrlToLcd = 1;
+      }
+      if ((*i == 12))
+      {
+        var = (0x29 + data_buffer_cntrl_ori[3]) & 0xff;
+        var = (0x11 + data_buffer_cntrl_ori[3]) & 0xff;
+        isModified_CntrlToLcd = 1;
+      }
+
+      // if (*i == 13)
+      // {
+      //   var = randomValue3(var, data_buffer_ori, _i_loop % 16000 > 8000);
+      //   var = randomValue3(var, data_buffer_ori, true);
+      // }
+
+      */
+
+/*
+          char print_buffer[10];
+      sprintf(print_buffer, "%02x ",
+              var);
+      Serial.print(print_buffer);
+
+      if (*i == 14)
+        Serial.println();
+        */
     }
 
     // GENERATE CHECKSUM
@@ -1040,8 +1177,11 @@ void MinimoUart::readHardSerial(int mode, int *i, Stream *hwSerCntrl, Stream *hw
 
     //uint32_t time = millis();
 
-    ss_out->write(var);
-
+    if (ss_out != NULL)
+    {
+      ss_out->write(var);
+      //Serial.printf("write : i = %d / 0x%02x\n", *i, var);
+    }
     //Serial.println("readHardSerial -- step4 / serialMode = " + (String)serialMode + " / i = " + (String)*i + " / millis = " + (String)(millis() - time));
 
     // display
@@ -1053,6 +1193,11 @@ void MinimoUart::readHardSerial(int mode, int *i, Stream *hwSerCntrl, Stream *hw
 
       // if simulated, compute check on moded datas and for frame checksum to bypass test
       if ((MINIMO_SIMULATED_DISPLAY == 1) && (serialMode == MODE_LCD_TO_CNTRL))
+      {
+        checksum = getCheckSum(data_buffer_mod);
+        data_buffer_ori[14] = checksum;
+      }
+      else if ((MINIMO_SIMULATED_CNTRL == 1) && (serialMode == MODE_CNTRL_TO_LCD))
       {
         checksum = getCheckSum(data_buffer_mod);
         data_buffer_ori[14] = checksum;
@@ -1081,17 +1226,15 @@ void MinimoUart::readHardSerial(int mode, int *i, Stream *hwSerCntrl, Stream *hw
         displaySpeed();
 #endif
 
-        /*
-        char print_buffer[500];
-        sprintf(print_buffer, " %02x %02x %02x %02x %02x ",
+        // char print_buffer[500];
+        // sprintf(print_buffer, " %02x %02x %02x %02x %02x ",
 
-                (data_buffer_cntrl_ori[9] - data_buffer_cntrl_ori[3]) & 0xff,
-                (data_buffer_cntrl_ori[10] - data_buffer_cntrl_ori[3]) & 0xff,
-                (data_buffer_cntrl_ori[11] - data_buffer_cntrl_ori[3]) & 0xff,
-                (data_buffer_cntrl_ori[12] - data_buffer_cntrl_ori[3]) & 0xff,
-                (data_buffer_cntrl_ori[13] - data_buffer_cntrl_ori[3]) & 0xff);
-        Serial.println(print_buffer);
-        */
+        //         (data_buffer_cntrl_ori[9] - data_buffer_cntrl_ori[3]) & 0xff,
+        //         (data_buffer_cntrl_ori[10] - data_buffer_cntrl_ori[3]) & 0xff,
+        //         (data_buffer_cntrl_ori[11] - data_buffer_cntrl_ori[3]) & 0xff,
+        //         (data_buffer_cntrl_ori[12] - data_buffer_cntrl_ori[3]) & 0xff,
+        //         (data_buffer_cntrl_ori[13] - data_buffer_cntrl_ori[3]) & 0xff);
+        // Serial.println(print_buffer);
       }
       else
       {
@@ -1157,6 +1300,8 @@ void MinimoUart::readHardSerial(int mode, int *i, Stream *hwSerCntrl, Stream *hw
 void MinimoUart::processSerial(uint32_t i_loop, boolean simulatedDisplay)
 {
 
+  _i_loop = i_loop;
+
   if ((MINIMO_SIMULATED_DISPLAY == 0) || ((i_loop % 200 >= 0) && (i_loop % 200 <= 14)))
   {
     if (MINIMO_SIMULATED_DISPLAY == 1)
@@ -1172,8 +1317,11 @@ void MinimoUart::processSerial(uint32_t i_loop, boolean simulatedDisplay)
       }
     }
 
-    readHardSerial(MODE_LCD_TO_CNTRL, &i_LcdRcv, hwSerCntrl, hwSerLcd, MODE_LCD_TO_CNTRL, data_buffer_lcd_ori, data_buffer_lcd_mod);
+    readHardSerial(MODE_LCD_TO_CNTRL, &i_LcdRcv, hwSerCntrl, hwSerLcd, data_buffer_lcd_ori, data_buffer_lcd_mod);
   }
 
-  readHardSerial(MODE_CNTRL_TO_LCD, &i_CntrlRcv, hwSerCntrl, hwSerLcd, MODE_CNTRL_TO_LCD, data_buffer_cntrl_ori, data_buffer_cntrl_mod);
+  if ((MINIMO_SIMULATED_CNTRL == 0) || ((i_loop % 200 >= 0) && (i_loop % 200 <= 14)))
+  {
+    readHardSerial(MODE_CNTRL_TO_LCD, &i_CntrlRcv, hwSerCntrl, hwSerLcd, data_buffer_cntrl_ori, data_buffer_cntrl_mod);
+  }
 }
