@@ -446,7 +446,11 @@ void tftUpdateData(uint32_t i_loop)
     // init TFT
     tft.begin();
     tft.invertDisplay(1);
-    tft.setRotation(settings.get_Rotate_screen());
+
+    if (settings.get_Rotate_screen() == settings.LIST_Rotate_screen_Normal) 
+      tft.setRotation(3);
+    else
+      tft.setRotation(1);
 
     tft.fillScreen(TFT_BLACK);
 

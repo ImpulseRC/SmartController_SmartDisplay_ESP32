@@ -75,7 +75,7 @@ void Settings::restore() {
     Serial.println("  >> Display_brightness = " + (String)Display_brightness);
     Display_splash_screen = prefs.getInt(SETTINGS_DISPLAY_SPLASH_SCREEN_STORAGE_KEY, 1);
     Serial.println("  >> Display_splash_screen = " + (String)Display_splash_screen);
-    Rotate_screen = prefs.getInt(SETTINGS_ROTATE_SCREEN_STORAGE_KEY, 1);
+    Rotate_screen = prefs.getInt(SETTINGS_ROTATE_SCREEN_STORAGE_KEY, 0);
     Serial.println("  >> Rotate_screen = " + (String)Rotate_screen);
     Ebrake_progressive_mode = prefs.getInt(SETTINGS_EBRAKE_PROGRESSIVE_MODE_STORAGE_KEY, 0);
     Serial.println("  >> Ebrake_progressive_mode = " + (String)Ebrake_progressive_mode);

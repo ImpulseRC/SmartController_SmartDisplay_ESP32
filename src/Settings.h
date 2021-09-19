@@ -425,10 +425,8 @@ public:
 
     uint8_t Rotate_screen;
     typedef enum LIST_Rotate_screen {
-        LIST_Rotate_screen_0,
-        LIST_Rotate_screen_1,
-        LIST_Rotate_screen_2,
-        LIST_Rotate_screen_3, 
+        LIST_Rotate_screen_Normal,
+        LIST_Rotate_screen_Inverted, 
     } tRotate_screen;
 
     void set_Rotate_screen (uint8_t value);

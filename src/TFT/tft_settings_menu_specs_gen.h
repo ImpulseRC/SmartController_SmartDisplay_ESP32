@@ -77,12 +77,10 @@ TOGGLE(tft_Display_splash_screen, tft_Display_splash_screen_LIST,"  Display spla
     ,VALUE("Off",0,doNothing,noEvent) //
     ,VALUE("On",1,doNothing,noEvent) //
 );
-uint8_t tft_Rotate_screen = 1;
+uint8_t tft_Rotate_screen = 0;
 TOGGLE(tft_Rotate_screen, tft_Rotate_screen_LIST,"  Rotate screen ",doNothing,noEvent,noStyle //
-    ,VALUE("0", 0 ,doNothing,noEvent) //
-    ,VALUE("1", 1 ,doNothing,noEvent) //
-    ,VALUE("2", 2 ,doNothing,noEvent) //
-    ,VALUE("3", 3 ,doNothing,noEvent) //
+    ,VALUE("Normal", 0 ,doNothing,noEvent) //
+    ,VALUE("Inverted", 1 ,doNothing,noEvent) //
 );
 uint8_t tft_Ebrake_progressive_mode = 0;
 TOGGLE(tft_Ebrake_progressive_mode, tft_Ebrake_progressive_mode_LIST,"  Progressive mode ",doNothing,noEvent,noStyle //

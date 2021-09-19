@@ -45,7 +45,7 @@ ACCheckbox(ACS4_5, "ACS4_5", "PAS enabled", false, AC_Infront);
 ACCheckbox(ACS4_6, "ACS4_6", "ABS enabled", false, AC_Infront);
 ACInput(ACS4_7, "100", "Display brightness", "", "", AC_Tag_BR, AC_Input_Text);
 ACCheckbox(ACS4_8, "ACS4_8", "Display splash screen", false, AC_Infront);
-ACSelect(ACS4_9, {"0","1","2","3"}, "Rotate screen", 1);
+ACSelect(ACS4_9, {"Normal","Inverted"}, "Rotate screen", 0);
 ACText(ACS5, "<h2>Electric brake</h2>", "");
 ACCheckbox(ACS5_1, "ACS5_1", "Progressive mode", false, AC_Infront);
 ACSelect(ACS5_2, {"Controller","Smart - Digital brake lever","Smart - Analog brake lever","Smart - Digital brake + throttle (exp)"}, "Type", 0);
@@ -299,13 +299,9 @@ void loadConfig(AutoConnectAux &aux)
     aux.setElementValue("ACS4_8", WifiSettingsPortal_settings->get_Display_splash_screen() ? "checked" : "");
     uint8_t val_Rotate_screen = WifiSettingsPortal_settings->get_Rotate_screen();
     if (val_Rotate_screen == 0)
-        aux.setElementValue("ACS4_9", "0");
+        aux.setElementValue("ACS4_9", "Normal");
     if (val_Rotate_screen == 1)
-        aux.setElementValue("ACS4_9", "1");
-    if (val_Rotate_screen == 2)
-        aux.setElementValue("ACS4_9", "2");
-    if (val_Rotate_screen == 3)
-        aux.setElementValue("ACS4_9", "3");
+        aux.setElementValue("ACS4_9", "Inverted");
     aux.setElementValue("ACS5_1", WifiSettingsPortal_settings->get_Ebrake_progressive_mode() ? "checked" : "");
     uint8_t val_Ebrake_smart_brake_type = WifiSettingsPortal_settings->get_Ebrake_smart_brake_type();
     if (val_Ebrake_smart_brake_type == 0)
