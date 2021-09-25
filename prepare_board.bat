@@ -7,6 +7,9 @@ IF "%2"==""  GOTO :Continue
     echo ### burn fuse
     python -m espefuse -p %1 --do-not-confirm set_flash_voltage 3.3V
 
+    echo ### erase flash
+    pio run -s -e %2 -t erase
+
     echo ### upload program
     pio run -s -e %2 -t upload
     
