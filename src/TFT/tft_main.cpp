@@ -134,7 +134,7 @@ const char *txt_volts = "VOLTS";
 const char *txt_err = "ERR";
 const char *txt_lck = "LCK";
 const char *txt_auton = "AUTON";
-const char *txt_time = "TIME";
+const char *txt_r_time = "TIME";
 const char *txt_trip = "TRIP";
 const char *txt_hr = "HR";
 const char *txt_power = "POWER";
@@ -513,7 +513,7 @@ void tftUpdateData(uint32_t i_loop)
     tft.setTextDatum(BR_DATUM);
     tft.drawString(txt_volts, COLUMN4, LINE_2Y - LINE_TEXT_OFFSET, GFXFF);
     tft.drawString(txt_auton, COLUMN3, LINE_2Y - LINE_TEXT_OFFSET, GFXFF);
-    tft.drawString(txt_time, COLUMN6, LINE_4Y - LINE_TEXT_OFFSET, GFXFF);
+    tft.drawString(txt_r_time, COLUMN6, LINE_4Y - LINE_TEXT_OFFSET, GFXFF);
     tft.drawString(txt_trip, COLUMN9, LINE_4Y - LINE_TEXT_OFFSET, GFXFF);
     if (shrd.owb_ds9990_present || shrd.shtc3_present || shrd.currentSensorPresent > 0)
       tft.drawString(txt_power, COLUMN2, LINE_4Y - LINE_TEXT_OFFSET, GFXFF);
